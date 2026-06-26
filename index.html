@@ -277,6 +277,38 @@
         .price-tag {
             background: linear-gradient(135deg, var(--crimson) 0%, #8b1a1a 100%);
         }
+
+        .special-card {
+            border: 2px solid #f59e0b;
+        }
+
+        .new-today-card {
+            border: 2px solid #e11d48;
+        }
+
+        .new-today-badge,
+        .special-badge {
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8px;
+            font-weight: 800;
+            color: white;
+            padding: 2px 6px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .new-today-badge {
+            background: #e11d48;
+        }
+
+        .special-badge {
+            background: #f59e0b;
+        }
     </style>
 </head>
 
@@ -363,28 +395,104 @@
         </div>
     </div>
 
+    <!-- Date & Day Banner -->
+    <div class="px-4 mb-4">
+        <div
+            class="bg-[#1e4620] rounded-2xl p-4 shadow-md border border-[#c4a46a]/30 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#c4a46a]/20 rounded-xl flex items-center justify-center">
+                    <span class="text-xl">📅</span>
+                </div>
+                <div>
+                    <p id="currentDay" class="text-[10px] font-bold uppercase tracking-widest text-[#c4a46a]">Loading...
+                    </p>
+                    <p id="currentDate" class="text-sm font-bold text-[#fdfaf2]">Loading...</p>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-[#c4a46a]">Today's Menu</p>
+                <p class="text-xs font-semibold text-[#fdfaf2]/80">Freshly Prepared</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Window / Deadline Banner -->
+    <div class="px-4 mb-4">
+        <div class="bg-[#fdfaf2] border-2 border-[#c4a46a] rounded-2xl p-4 shadow-md relative overflow-hidden">
+            <!-- Decorative corner accent -->
+            <div class="absolute top-0 right-0 w-16 h-16 bg-[#c4a46a]/10 rounded-bl-full"></div>
+
+            <div class="flex items-center gap-2 mb-3">
+                <span class="text-lg">⏰</span>
+                <h3 class="text-sm font-black uppercase tracking-wider text-[#1e4620]">Order Before It's Too Late!</h3>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2">
+                <!-- Breakfast -->
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-center relative">
+                    <span class="text-lg block mb-0.5">🥞</span>
+                    <p class="text-[9px] font-bold uppercase tracking-wider text-amber-700">Breakfast</p>
+                    <p class="text-xs font-black text-[#ba2323] mt-0.5">Before 8:00 AM</p>
+                    <div id="breakfast-status"
+                        class="mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-neutral-200 text-neutral-500 uppercase">
+                        Checking...</div>
+                </div>
+
+                <!-- Lunch -->
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-center relative">
+                    <span class="text-lg block mb-0.5">🍛</span>
+                    <p class="text-[9px] font-bold uppercase tracking-wider text-emerald-700">Lunch</p>
+                    <p class="text-xs font-black text-[#ba2323] mt-0.5">Before 12:00 PM</p>
+                    <div id="lunch-status"
+                        class="mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-neutral-200 text-neutral-500 uppercase">
+                        Checking...</div>
+                </div>
+
+                <!-- Dinner -->
+                <div class="bg-[#5c161d]/5 border border-[#5c161d]/20 rounded-xl p-2.5 text-center relative">
+                    <span class="text-lg block mb-0.5">🌙</span>
+                    <p class="text-[9px] font-bold uppercase tracking-wider text-[#5c161d]">Dinner</p>
+                    <p class="text-xs font-black text-[#ba2323] mt-0.5">Before 6:30 PM</p>
+                    <div id="dinner-status"
+                        class="mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-neutral-200 text-neutral-500 uppercase">
+                        Checking...</div>
+                </div>
+            </div>
+
+            <p class="text-[9px] text-center text-neutral-400 mt-2 font-medium italic">Orders placed after deadline will
+                be processed for next available slot</p>
+        </div>
+    </div>
+
     <!-- Filters -->
-    <div class="px-4 mb-4 sticky-tabs bg-[#fcf9f2]/90 border-b border-[#e1d3b4]">
-        <div class="py-3 space-y-3">
+    <div class="mb-4 sticky-tabs bg-[#fcf9f2]/90 border-b border-[#e1d3b4]">
+        <div class="py-3 space-y-3 px-4">
             <div class="relative">
                 <span class="absolute inset-y-0 left-3 flex items-center text-neutral-400 text-sm">🔍</span>
                 <input type="text" id="menuSearch" oninput="filterMenuItems()" placeholder="Search dishes..."
                     class="w-full pl-9 pr-4 py-3 bg-white rounded-xl border border-[#c4a46a]/50 focus:ring-2 focus:ring-[#1e4620] focus:outline-none text-sm shadow-sm">
             </div>
-            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-                <button onclick="setDietFilter('all')" id="filterAll"
-                    class="touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-[#1e4620] text-white whitespace-nowrap shadow-sm">All
-                    Food</button>
-                <button onclick="setDietFilter('veg')" id="filterVeg"
-                    class="touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white text-emerald-800 border border-emerald-200 whitespace-nowrap shadow-sm">🌿
-                    Veg Only</button>
-                <button onclick="setDietFilter('nonveg')" id="filterNonVeg"
-                    class="touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white text-rose-800 border border-rose-200 whitespace-nowrap shadow-sm">🍗
-                    Non Veg</button>
-                <button onclick="setDietFilter('special')" id="filterSpecial"
-                    class="touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white text-amber-800 border border-amber-200 whitespace-nowrap shadow-sm">✨
-                    Best Sellers</button>
-            </div>
+        </div>
+        <div class="flex gap-2 overflow-x-auto no-scrollbar pb-3 snap-x snap-mandatory px-4">
+            <button onclick="setDietFilter('all')" id="filterall"
+                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-[#1e4620] text-white whitespace-nowrap shadow-sm snap-start flex-shrink-0">🍽️
+                All Food</button>
+            <button onclick="setDietFilter('veg')" id="filterveg"
+                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-emerald-800 border border-emerald-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🌿
+                Veg Only</button>
+            <button onclick="setDietFilter('nonveg')" id="filternonveg"
+                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-rose-800 border border-rose-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🍗
+                Non Veg</button>
+            <button onclick="setDietFilter('special')" id="filterspecial"
+                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-amber-800 border border-amber-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🔥
+                Specials</button>
+            <button onclick="setDietFilter('bestseller')" id="filterbestseller"
+                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-purple-800 border border-purple-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🏆
+                Best Sellers</button>
+            <button onclick="setDietFilter('new')" id="filternew"
+                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-rose-600 border border-rose-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🆕
+                New Today</button>
+            <div class="w-4 flex-shrink-0 snap-start"></div>
         </div>
     </div>
 
@@ -525,14 +633,6 @@
             <span>📲</span> Share Full Menu
         </button>
 
-        <!-- Download Full Menu Button -->
-        <a href="https://firebasestorage.googleapis.com/v0/b/cinebooker-3vlr8.firebasestorage.app/o/app_releases%2Fyummy%20nest%20kitchen%2FFood%20menu.xlsx?alt=media&token=a07d476e-247e-443e-98fd-62ae33dc691f"
-            download="Yummy_Nest_Kitchen_Menu.xlsx"
-            onclick="window.logEvent(analytics, 'generate_lead', { method: 'menu_download' });"
-            class="touch-btn w-full bg-[#5c161d] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 text-sm mt-3 press-effect">
-            <span>📊</span> Download Full Menu (Excel)
-        </a>
-
         <div class="text-center pb-4">
             <p class="text-[10px] text-neutral-400 italic">Likes are saved permanently across all days</p>
         </div>
@@ -614,6 +714,41 @@
             lunch: { start: 11, end: 16, label: 'Lunch', icon: '🍛', hours: '11:30 AM - 3:30 PM' },
             dinner: { start: 19, end: 23, label: 'Dinner', icon: '🌙', hours: '7:00 PM - 10:30 PM' }
         };
+
+        function initializeDates() {
+            const now = new Date();
+            const days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            document.getElementById('currentDay').innerText = days[now.getDay()];
+            document.getElementById('currentDate').innerText = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+        }
+
+        function updateDeadlines() {
+            const now = new Date();
+            const hour = now.getHours();
+            const min = now.getMinutes();
+            const currentDecimalHour = hour + (min / 60);
+
+            const updateStatus = (id, deadlineHour, openLabel, closedLabel) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                if (currentDecimalHour < deadlineHour) {
+                    el.innerText = openLabel;
+                    el.className = "mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 uppercase transition-all";
+                } else {
+                    el.innerText = closedLabel;
+                    el.className = "mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700 uppercase transition-all";
+                }
+            };
+
+            // Before 8:00 AM
+            updateStatus('breakfast-status', 8, 'Accepting Orders', 'Orders Closed');
+            // Before 12:00 PM
+            updateStatus('lunch-status', 12, 'Accepting Orders', 'Orders Closed');
+            // Before 6:30 PM
+            updateStatus('dinner-status', 18.5, 'Accepting Orders', 'Orders Closed');
+        }
 
         function showToast(msg, icon = '❤️') {
             const toast = document.getElementById("toastNotification");
@@ -788,199 +923,64 @@
             }
         }
 
-        function renderHorizontalItems(items, mealType, containerId) {
-            const container = document.getElementById(containerId);
-            const status = getCurrentMealStatus();
-            const isCurrentlyServing = status.currentMeal === mealType;
+        let currentFilter = 'all';
+        let searchQuery = '';
 
-            if (!items || items.length === 0) {
-                container.innerHTML = getEmptyStateHTML(mealType, isCurrentlyServing);
-                return;
-            }
-
-            container.innerHTML = items.map((item) => {
-                const itemKey = item.id;
-                const isSpecial = item.isSpecial || item.isBestseller || false;
-                const hasImage = item.image && item.image.trim() !== "" && !item.image.includes('placeholder') && !item.image.includes('placehold.co');
-                const safeName = (item.name || 'Dish').replace(/'/g, "\\'");
-                const likes = item.likes || item.Like || 0;
-                const category = item.category || 'veg';
-                const isLiked = state.userLiked[itemKey] || false;
-                const heartEmoji = isLiked ? '❤️' : '🤍';
-
-                const imageSection = hasImage ? '<img src="' + item.image + '" alt="' + item.name.replace(/"/g, "&quot;") + '" class="w-full h-full object-cover menu-img" data-fallback="' + safeName.replace(/'/g, "\\\'") + '">' : getCardPlaceholderHTML(item.name || 'Dish');
-
-                return '<div class="food-card press-effect w-36 flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-sm border border-[#e5dcc3] cursor-pointer relative" data-diet="' + category + '" data-special="' + isSpecial + '" data-name="' + item.name.toLowerCase() + '" onclick="openSpotlight(\'' + itemKey + '\')">' +
-                    '<div class="h-28 relative bg-[#e5dcc3] overflow-hidden">' + imageSection +
-                    '<button onclick="toggleLike(\'' + itemKey + '\')" data-card-like="' + itemKey + '" class="card-like-btn ' + (isLiked ? 'liked' : '') + '" title="Like this dish">' + heartEmoji + '</button>' +
-                    '<span data-card-count="' + itemKey + '" class="card-like-count">' + likes + '</span>' +
-                    '<span class="absolute top-2 left-2 bg-white/90 text-[10px] px-2 py-0.5 rounded-full font-bold">' + getMealIcon(mealType) + '</span>' +
-                    '<span class="absolute bottom-2 left-2 price-tag text-white text-[10px] px-2 py-0.5 rounded font-bold z-10">₹' + item.price.toString() + '</span>' +
-                    '</div><div class="p-2.5"><p class="text-[11px] font-bold text-neutral-800 truncate">' + item.name + '</p>' +
-                    '<p class="text-[9px] text-neutral-500 truncate">' + (item.description || getMealFallbackText(mealType)) + '</p>' +
-                    (isSpecial ? '<span class="inline-block mt-1 text-[8px] bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded font-extrabold uppercase">Must Try</span>' : '') +
-                    getCategoryBadge(category) + '</div></div>';
-            }).join('');
-        }
-
-        async function fetchTodaysMenu(retryCount = 0) {
-            const MAX_RETRIES = 2;
-            const TIMEOUT_MS = 10000;
-
-            // Helper to show loading error with retry button
-            function showLoadError(containerId, mealType) {
-                const container = document.getElementById(containerId);
-                container.innerHTML =
-                    '<div class="empty-state bg-red-50 border-2 border-red-200 rounded-2xl p-5 text-center w-full flex-shrink-0 snap-start">' +
-                    '<div class="text-3xl mb-2">⚠️</div>' +
-                    '<p class="text-sm font-bold text-red-700 mb-1">Failed to load ' + mealType + '</p>' +
-                    '<p class="text-[11px] text-neutral-500 leading-relaxed mb-3">Network issue or server unavailable.</p>' +
-                    '<button onclick="window.fetchTodaysMenu()" class="touch-btn bg-[#1e4620] text-white text-xs font-bold py-2 px-4 rounded-xl mx-auto">🔄 Retry</button>' +
-                    '</div>';
-            }
-
-            // Helper to show timeout error
-            function showTimeoutError() {
-                ['breakfast-gallery-scroll', 'lunch-gallery-scroll', 'dinner-gallery-scroll'].forEach((id, idx) => {
-                    const mealTypes = ['Breakfast', 'Lunch', 'Dinner'];
-                    showLoadError(id, mealTypes[idx]);
-                });
-                showToast("Connection timed out. Tap Retry.", "⏱️");
-            }
-
-            try {
-                // Ensure safe anonymous authentication before firing Firestore read requests
-                try {
-                    if (!auth.currentUser) {
-                        await signInAnonymously(auth);
+        window.setDietFilter = function (filter) {
+            currentFilter = filter;
+            // Update active state of buttons
+            const buttons = ['all', 'veg', 'nonveg', 'special', 'bestseller', 'new'];
+            buttons.forEach(b => {
+                const btn = document.getElementById('filter' + b);
+                if (btn) {
+                    if (filter === b) {
+                        btn.classList.add('bg-[#1e4620]', 'text-white');
+                        btn.classList.remove('bg-white', 'text-emerald-800', 'text-rose-800', 'text-amber-800', 'text-purple-800', 'text-rose-600', 'border');
+                    } else {
+                        btn.classList.remove('bg-[#1e4620]', 'text-white');
+                        btn.classList.add('bg-white', 'border');
+                        if (b === 'veg') btn.classList.add('text-emerald-800', 'border-emerald-200');
+                        else if (b === 'nonveg') btn.classList.add('text-rose-800', 'border-rose-200');
+                        else if (b === 'special') btn.classList.add('text-amber-800', 'border-amber-200');
+                        else if (b === 'bestseller') btn.classList.add('text-purple-800', 'border-purple-200');
+                        else if (b === 'new') btn.classList.add('text-rose-600', 'border-rose-200');
+                        else btn.classList.add('text-neutral-800', 'border-neutral-200');
                     }
-                } catch (authErr) {
-                    console.warn("Firebase Auth bypassed or failed. Proceeding with anonymous fallback request:", authErr);
                 }
-
-                // Set a timeout promise
-                const timeoutPromise = new Promise((_, reject) => {
-                    setTimeout(() => reject(new Error('TIMEOUT')), TIMEOUT_MS);
-                });
-
-                // Fetch settings with timeout
-                const settingsRef = doc(db, "daily_menus", "today");
-                const settingsSnap = await Promise.race([getDoc(settingsRef), timeoutPromise]);
-
-                if (settingsSnap.exists()) state.todaySettings = settingsSnap.data();
-
-                if (state.todaySettings.isHoliday === true) {
-                    document.getElementById('menuContainer').classList.add('hidden');
-                    document.getElementById('holidayBanner').classList.remove('hidden');
-                    document.getElementById('holidayTimeText').innerText = state.todaySettings.holidayMessage || "Today";
-                    return;
-                }
-
-                // Fetch menu items with timeout
-                const menuItemsRef = collection(db, "menu_items");
-                const q = query(menuItemsRef, where("isEnabled", "==", true));
-                const querySnapshot = await Promise.race([getDocs(q), timeoutPromise]);
-
-                const enabledItems = [];
-                querySnapshot.forEach((docSnap) => { enabledItems.push({ id: docSnap.id, ...docSnap.data() }); });
-
-                state.allEnabledItems = enabledItems;
-                state.masterMenuData.breakfast = enabledItems.filter(i => i.mealType === 'breakfast');
-                state.masterMenuData.lunch = enabledItems.filter(i => i.mealType === 'lunch');
-                state.masterMenuData.dinner = enabledItems.filter(i => i.mealType === 'dinner');
-
-                renderHorizontalItems(state.masterMenuData.breakfast, 'breakfast', 'breakfast-gallery-scroll');
-                renderHorizontalItems(state.masterMenuData.lunch, 'lunch', 'lunch-gallery-scroll');
-                renderHorizontalItems(state.masterMenuData.dinner, 'dinner', 'dinner-gallery-scroll');
-
-                if (state.todaySettings.delivery_charge) {
-                    document.getElementById('dynamic-delivery-charge').innerText = state.todaySettings.delivery_charge;
-                    document.getElementById('deliveryChargeBlock').classList.remove('hidden');
-                }
-
-                updateFavoritesBoard(enabledItems);
-                updateSmartTimeBanner();
-
-                if (retryCount > 0) {
-                    showToast("Menu loaded successfully!", "✅");
-                }
-
-            } catch (error) {
-                console.error("Firestore error:", error);
-
-                if (error.message === 'TIMEOUT' || error.code === 'unavailable' || error.code === 'deadline-exceeded') {
-                    if (retryCount < MAX_RETRIES) {
-                        showToast("Retrying connection... (" + (retryCount + 1) + "/" + MAX_RETRIES + ")", "🔄");
-                        setTimeout(() => fetchTodaysMenu(retryCount + 1), 2000);
-                        return;
-                    }
-                    showTimeoutError();
-                } else if (error.code === 'permission-denied') {
-                    ['breakfast-gallery-scroll', 'lunch-gallery-scroll', 'dinner-gallery-scroll'].forEach((id, idx) => {
-                        const container = document.getElementById(id);
-                        container.innerHTML =
-                            '<div class="empty-state bg-amber-50 border-2 border-amber-200 rounded-2xl p-5 text-center w-full flex-shrink-0 snap-start">' +
-                            '<div class="text-3xl mb-2">🔒</div>' +
-                            '<p class="text-sm font-bold text-amber-800 mb-1">Access Denied</p>' +
-                            '<p class="text-[11px] text-neutral-500 leading-relaxed">Firestore rules may be blocking access. Please check permissions.</p>' +
-                            '</div>';
-                    });
-                } else {
-                    ['breakfast-gallery-scroll', 'lunch-gallery-scroll', 'dinner-gallery-scroll'].forEach((id, idx) => {
-                        const mealTypes = ['Breakfast', 'Lunch', 'Dinner'];
-                        showLoadError(id, mealTypes[idx]);
-                    });
-                }
-            }
-        }
-
-        function updateFavoritesBoard(allItems) {
-            const pollBoard = document.getElementById('poll-board');
-            const topItems = [...allItems].sort((a, b) => (b.likes || b.Like || 0) - (a.likes || a.Like || 0)).slice(0, 4);
-
-            if (topItems.length > 0) {
-                pollBoard.innerHTML = topItems.map(item => {
-                    const icon = item.mealType === 'breakfast' ? '🥞' : (item.mealType === 'lunch' ? '🍛' : '🌙');
-                    const likesVal = item.likes || item.Like || 0;
-                    const isLiked = state.userLiked[item.id] || false;
-                    const heartIcon = isLiked ? '❤️' : '🤍';
-                    const btnClass = isLiked ? 'bg-rose-50 border-rose-200' : 'bg-neutral-50 border-neutral-200';
-                    return '<button onclick="toggleLike(\'' + item.id + '\')" id="poll-btn-' + item.id + '" class="touch-btn p-3 rounded-xl border text-left transition-all ' + btnClass + '"><span class="text-xs font-bold text-neutral-700 block truncate">' + icon + ' ' + item.name + '</span><span id="poll_' + item.id + '" class="text-[10px] font-bold text-[#1e4620] flex items-center gap-1"><span class="' + (isLiked ? 'like-count-pop' : '') + '">' + heartIcon + ' ' + likesVal + '</span></span></button>';
-                }).join('');
-            } else {
-                pollBoard.innerHTML = '<div class="col-span-2 text-center text-neutral-400 text-sm py-4">No favorites yet. Start voting!</div>';
-            }
-        }
+            });
+            applyFilters();
+        };
 
         window.filterMenuItems = function () {
-            const query = document.getElementById("menuSearch").value.toLowerCase().trim();
-            if (query.length > 0) {
-                window.logEvent(analytics, 'search', { search_term: query });
-            }
-            const blocks = document.querySelectorAll(".menu-section .food-card");
-            blocks.forEach(block => { const name = block.getAttribute("data-name") || ""; block.style.display = name.includes(query) ? "block" : "none"; });
+            searchQuery = document.getElementById('menuSearch').value.toLowerCase();
+            applyFilters();
         };
 
-        window.setDietFilter = function (filterType) {
-            window.logEvent(analytics, 'select_content', { content_type: 'diet_filter', item_id: filterType });
-            const blocks = document.querySelectorAll(".menu-section .food-card");
-            const btns = ['filterAll', 'filterVeg', 'filterNonVeg', 'filterSpecial'];
-            btns.forEach(id => { const btn = document.getElementById(id); btn.className = "touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-white text-[#1e4620] border border-neutral-200 whitespace-nowrap shadow-sm"; });
+        function applyFilters() {
+            const cards = document.querySelectorAll('.food-card');
+            cards.forEach(card => {
+                const diet = card.getAttribute('data-diet');
+                const isSpecial = card.getAttribute('data-special') === 'true';
+                const isBestSeller = card.getAttribute('data-bestseller') === 'true';
+                const isNewToday = card.getAttribute('data-newtoday') === 'true';
+                const name = card.getAttribute('data-name');
 
-            if (filterType === 'all') {
-                document.getElementById('filterAll').className = "touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-[#1e4620] text-white whitespace-nowrap shadow-sm";
-                blocks.forEach(b => b.style.display = "block");
-            } else if (filterType === 'veg') {
-                document.getElementById('filterVeg').className = "touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-emerald-700 text-white whitespace-nowrap shadow-sm";
-                blocks.forEach(b => b.style.display = b.getAttribute("data-diet") === "veg" ? "block" : "none");
-            } else if (filterType === 'nonveg') {
-                document.getElementById('filterNonVeg').className = "touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-rose-700 text-white whitespace-nowrap shadow-sm";
-                blocks.forEach(b => b.style.display = b.getAttribute("data-diet") === "nonveg" ? "block" : "none");
-            } else if (filterType === 'special') {
-                document.getElementById('filterSpecial').className = "touch-btn px-4 py-2 text-xs font-bold rounded-full transition-all bg-amber-600 text-white whitespace-nowrap shadow-sm";
-                blocks.forEach(b => b.style.display = b.getAttribute("data-special") === "true" ? "block" : "none");
-            }
-        };
+                let dietMatch = true;
+                if (currentFilter === 'veg') dietMatch = (diet === 'veg');
+                if (currentFilter === 'nonveg') dietMatch = (diet === 'nonveg');
+                if (currentFilter === 'special') dietMatch = isSpecial;
+                if (currentFilter === 'bestseller') dietMatch = isBestSeller;
+                if (currentFilter === 'new') dietMatch = isNewToday;
+
+                const searchMatch = name.includes(searchQuery);
+
+                if (dietMatch && searchMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
         window.openSpotlight = function (itemId) {
             console.log("openSpotlight:", itemId);
@@ -1056,6 +1056,20 @@
             }, 250);
         };
 
+        window.shareEntireMenu = function () {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Yummy Nest Kitchen',
+                    text: 'Check out today\'s delicious menu at Yummy Nest Kitchen!',
+                    url: window.location.href,
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    showToast("Link copied to clipboard!", "🔗");
+                });
+            }
+        };
+
         window.shareSpotlightDish = function () {
             if (!state.activeSpotlightKey) return;
             const result = findItemById(state.activeSpotlightKey);
@@ -1066,94 +1080,237 @@
             window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
         };
 
-        window.shareEntireMenu = function () {
-            window.logEvent(analytics, 'share', { method: 'whatsapp', content_type: 'full_menu' });
-            let menuText = '📋 *Yummy Nest Kitchen - Today\'s Menu*\n\n';
-            if (state.masterMenuData.breakfast.length > 0) {
-                menuText += '🌅 *Breakfast (7:30 AM - 10:30 AM)*:\n';
-                state.masterMenuData.breakfast.forEach(item => { menuText += '• ' + item.name + ': ₹' + item.price.toString() + '\n'; });
-                menuText += '\n';
+        function renderHorizontalItems(items, mealType, containerId) {
+            const container = document.getElementById(containerId);
+            const status = getCurrentMealStatus();
+            const isCurrentlyServing = status.currentMeal === mealType;
+
+            if (!items || items.length === 0) {
+                container.innerHTML = getEmptyStateHTML(mealType, isCurrentlyServing);
+                return;
             }
-            if (state.masterMenuData.lunch.length > 0) {
-                menuText += '☀️ *Lunch (11:30 AM - 3:30 PM)*:\n';
-                state.masterMenuData.lunch.forEach(item => { menuText += '• ' + item.name + ': ₹' + item.price.toString() + '\n'; });
-                menuText += '\n';
-            }
-            if (state.masterMenuData.dinner.length > 0) {
-                menuText += '🌙 *Dinner (7:00 PM - 10:30 PM)*:\n';
-                state.masterMenuData.dinner.forEach(item => { menuText += '• ' + item.name + ': ₹' + item.price.toString() + '\n'; });
-                menuText += '\n';
-            }
-            menuText += '🏡 Flat B, Yummy Nest Arcade, Coimbatore\n📞 +91 97893 27773';
-            window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(menuText), '_blank');
-        };
+
+            container.innerHTML = [...items].sort((a, b) => (b.likes || b.Like || 0) - (a.likes || a.Like || 0)).map((item) => {
+                const itemKey = item.id;
+                const likes = item.likes || item.Like || 0;
+                const isSpecial = item.isSpecial || false;
+                // Treat items with > 0 likes as Bestsellers automatically
+                const isBestSeller = (item.isBestseller || false) || (likes > 0);
+                const isNewToday = item.isNewToday || false;
+                const hasImage = item.image && item.image.trim() !== "" && !item.image.includes('placeholder') && !item.image.includes('placehold.co');
+                const safeName = (item.name || 'Dish').replace(/'/g, "\'");
+                const category = item.category || 'veg';
+                const isLiked = state.userLiked[itemKey] || false;
+                const heartEmoji = isLiked ? '❤️' : '🤍';
+
+                // Determine card border class
+                let cardBorderClass = '';
+                if (isNewToday) cardBorderClass = 'new-today-card';
+                else if (isSpecial) cardBorderClass = 'special-card';
+                else if (isBestSeller) cardBorderClass = 'special-card';
+
+                // Determine top-left badge
+                let topBadge = '';
+                if (isNewToday) {
+                    topBadge = '<span class="new-today-badge">✨ New</span>';
+                } else if (isBestSeller) {
+                    topBadge = '<span class="special-badge">🏆 Best Seller</span>';
+                } else if (isSpecial) {
+                    topBadge = '<span class="special-badge">🔥 Special</span>';
+                }
+
+                const imageSection = hasImage ? '<img src="' + item.image + '" alt="' + item.name.replace(/"/g, "&quot;") + '" class="w-full h-full object-cover menu-img" data-fallback="' + safeName.replace(/'/g, "\'") + '">' : getCardPlaceholderHTML(item.name || 'Dish');
+
+                // Bottom badge
+                let bottomBadge = '';
+                if (isNewToday) {
+                    bottomBadge = '<span class="inline-block mt-1 text-[8px] bg-rose-50 text-rose-700 px-1.5 py-0.5 rounded font-extrabold uppercase border border-rose-100">🆕 New Today</span>';
+                } else if (isBestSeller) {
+                    bottomBadge = '<span class="inline-block mt-1 text-[8px] bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded font-extrabold uppercase border border-purple-100">🏆 Best Seller</span>';
+                } else if (isSpecial) {
+                    bottomBadge = '<span class="inline-block mt-1 text-[8px] bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded font-extrabold uppercase border border-amber-100">🔥 Special</span>';
+                }
+
+                return '<div class="food-card press-effect w-36 flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-sm border border-[#e5dcc3] cursor-pointer relative ' + cardBorderClass + '" data-diet="' + category + '" data-special="' + isSpecial + '" data-bestseller="' + isBestSeller + '" data-newtoday="' + isNewToday + '" data-name="' + item.name.toLowerCase() + '" onclick="openSpotlight(\'' + itemKey + '\')">' +
+                    '<div class="h-28 relative bg-[#e5dcc3] overflow-hidden">' + topBadge + imageSection +
+                    '<button onclick="toggleLike(\'' + itemKey + '\')" data-card-like="' + itemKey + '" class="card-like-btn ' + (isLiked ? 'liked' : '') + '" title="Like this dish">' + heartEmoji + '</button>' +
+                    '<span data-card-count="' + itemKey + '" class="card-like-count">' + likes + '</span>' +
+                    '<span class="absolute top-2 left-2 bg-white/90 text-[10px] px-2 py-0.5 rounded-full font-bold">' + getMealIcon(mealType) + '</span>' +
+                    '<span class="absolute bottom-2 left-2 price-tag text-white text-[10px] px-2 py-0.5 rounded font-bold z-10">₹' + item.price.toString() + '</span>' +
+                    '</div><div class="p-2.5"><p class="text-[11px] font-bold text-neutral-800 truncate">' + item.name + '</p>' +
+                    '<p class="text-[9px] text-neutral-500 truncate">' + (item.description || getMealFallbackText(mealType)) + '</p>' +
+                    bottomBadge +
+                    getCategoryBadge(category) + '</div></div>';
+            }).join('');
+        }
 
         function updateSmartTimeBanner() {
             const status = getCurrentMealStatus();
-            const smartMsg = document.getElementById("smartTimeMsg");
-            const smartBadge = document.getElementById("smartBadge");
+            const msgEl = document.getElementById('smartTimeMsg');
+            const badgeEl = document.getElementById('smartBadge');
 
-            if (status.isOpen && status.currentMeal) {
-                const meal = MEAL_TIMES[status.currentMeal];
-                const items = state.masterMenuData[status.currentMeal] || [];
-
-                if (items.length === 0) {
-                    smartMsg.innerHTML = '<strong>' + meal.label + ' time!</strong> ' + meal.icon + ' <span style="color:#b91c1c">— No items available today</span>';
-                    smartBadge.className = "font-extrabold uppercase px-3 py-1 rounded-full text-[10px] bg-amber-100 text-amber-800 border border-amber-300 soft-pulse";
-                    smartBadge.innerText = "NO MENU";
-                } else {
-                    smartMsg.innerHTML = '<strong>Serving ' + meal.label + ' Now!</strong> ' + meal.icon;
-                    smartBadge.className = "font-extrabold uppercase px-3 py-1 rounded-full text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-300 soft-pulse";
-                    smartBadge.innerText = "OPEN";
-                }
-            } else if (!status.isOpen && status.nextMeal) {
+            if (status.isOpen) {
+                msgEl.innerText = `Now serving ${status.mealLabel}`;
+                badgeEl.innerText = "Fresh";
+                badgeEl.className = "font-extrabold uppercase px-2.5 py-1 rounded-full text-[10px] bg-emerald-200 text-emerald-800 soft-pulse";
+            } else if (status.nextMeal) {
                 const next = MEAL_TIMES[status.nextMeal];
-                const nextItems = state.masterMenuData[status.nextMeal] || [];
-
-                if (nextItems.length === 0) {
-                    smartMsg.innerHTML = 'Kitchen prep in progress... <span style="color:#6b7280">' + next.label + ' menu not ready</span>';
-                } else {
-                    const hoursUntil = status.hoursUntilNext;
-                    if (hoursUntil <= 1) {
-                        smartMsg.innerHTML = '<strong>' + next.label + ' starting soon!</strong> ' + next.icon + ' Get ready to order';
-                    } else {
-                        smartMsg.innerHTML = 'Next: <strong>' + next.label + '</strong> ' + next.icon + ' in ~' + hoursUntil + 'h';
-                    }
-                }
-                smartBadge.className = "font-extrabold uppercase px-3 py-1 rounded-full text-[10px] bg-rose-100 text-rose-800 border border-rose-300";
-                smartBadge.innerText = "PREP";
+                msgEl.innerText = `${next.label} starts soon`;
+                badgeEl.innerText = "Prep";
+                badgeEl.className = "font-extrabold uppercase px-2.5 py-1 rounded-full text-[10px] bg-amber-200 text-amber-800 soft-pulse";
             } else {
-                smartMsg.innerHTML = "Kitchen prep in progress...";
-                smartBadge.className = "font-extrabold uppercase px-3 py-1 rounded-full text-[10px] bg-rose-100 text-rose-800 border border-rose-300";
-                smartBadge.innerText = "PREP";
+                msgEl.innerText = `Kitchen closed`;
+                badgeEl.innerText = "Closed";
+                badgeEl.className = "font-extrabold uppercase px-2.5 py-1 rounded-full text-[10px] bg-neutral-200 text-neutral-800";
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchTodaysMenu();
-            window.logEvent(analytics, 'page_view', { page_title: 'Menu', page_location: window.location.href });
+        function updateFavoritesBoard(items) {
+            const board = document.getElementById('poll-board');
+            if (!items || items.length === 0) {
+                board.innerHTML = '<p class="col-span-2 text-center text-xs text-neutral-500 py-4">No favorites yet.</p>';
+                return;
+            }
 
-            // Safety timeout: if still loading after 12s, show error
-            setTimeout(() => {
-                const breakfast = document.getElementById('breakfast-gallery-scroll');
-                if (breakfast && breakfast.querySelector('.shimmer')) {
-                    showToast("Still loading... Check your connection.", "⏳");
+            const sorted = [...items].sort((a, b) => (b.likes || b.Like || 0) - (a.likes || a.Like || 0)).slice(0, 4);
+
+            board.innerHTML = sorted.map(item => {
+                const likes = item.likes || item.Like || 0;
+                const isLiked = state.userLiked[item.id] || false;
+                const heartIcon = isLiked ? '❤️' : '🤍';
+                const btnClass = isLiked ? 'touch-btn p-3 rounded-xl border text-left transition-all bg-rose-50 border-rose-200' : 'touch-btn p-3 rounded-xl border text-left transition-all bg-neutral-50 border-neutral-200';
+
+                return `<button id="poll-btn-${item.id}" onclick="toggleLike('${item.id}')" class="${btnClass}">
+                    <p class="text-[11px] font-bold text-neutral-800 truncate mb-1">${item.name}</p>
+                    <div class="flex items-center justify-between">
+                        <span id="poll_${item.id}" class="text-[10px] font-bold ${isLiked ? 'text-rose-600' : 'text-neutral-500'}"><span>${heartIcon} ${likes}</span></span>
+                        <span class="text-[10px] bg-white px-1.5 py-0.5 rounded border border-neutral-200">₹${item.price}</span>
+                    </div>
+                </button>`;
+            }).join('');
+        }
+
+        window.fetchTodaysMenu = async function (retryCount = 0) {
+            const MAX_RETRIES = 2;
+            const TIMEOUT_MS = 10000;
+
+            function showLoadError(containerId, mealType) {
+                const container = document.getElementById(containerId);
+                container.innerHTML =
+                    '<div class="empty-state bg-red-50 border-2 border-red-200 rounded-2xl p-5 text-center w-full flex-shrink-0 snap-start">' +
+                    '<div class="text-3xl mb-2">⚠️</div>' +
+                    '<p class="text-sm font-bold text-red-700 mb-1">Failed to load ' + mealType + '</p>' +
+                    '<p class="text-[11px] text-neutral-500 leading-relaxed mb-3">Network issue or server unavailable.</p>' +
+                    '<button onclick="window.fetchTodaysMenu()" class="touch-btn bg-[#1e4620] text-white text-xs font-bold py-2 px-4 rounded-xl mx-auto">🔄 Retry</button>' +
+                    '</div>';
+            }
+
+            function showTimeoutError() {
+                ['breakfast-gallery-scroll', 'lunch-gallery-scroll', 'dinner-gallery-scroll'].forEach((id, idx) => {
+                    const mealTypes = ['Breakfast', 'Lunch', 'Dinner'];
+                    showLoadError(id, mealTypes[idx]);
+                });
+                showToast("Connection timed out. Tap Retry.", "⏱️");
+            }
+
+            try {
+                try {
+                    if (!auth.currentUser) {
+                        await signInAnonymously(auth);
+                    }
+                } catch (authErr) {
+                    console.warn("Firebase Auth bypassed or failed. Proceeding with anonymous fallback request:", authErr);
                 }
-            }, 12000);
+
+                const timeoutPromise = new Promise((_, reject) => {
+                    setTimeout(() => reject(new Error('TIMEOUT')), TIMEOUT_MS);
+                });
+
+                const settingsRef = doc(db, "daily_menus", "today");
+                const settingsSnap = await Promise.race([getDoc(settingsRef), timeoutPromise]);
+
+                if (settingsSnap.exists()) state.todaySettings = settingsSnap.data();
+
+                if (state.todaySettings.isHoliday === true) {
+                    document.getElementById('menuContainer').classList.add('hidden');
+                    document.getElementById('holidayBanner').classList.remove('hidden');
+                    document.getElementById('holidayTimeText').innerText = state.todaySettings.holidayMessage || "Today";
+                    return;
+                }
+
+                const menuItemsRef = collection(db, "menu_items");
+                const q = query(menuItemsRef, where("isEnabled", "==", true));
+                const querySnapshot = await Promise.race([getDocs(q), timeoutPromise]);
+
+                const enabledItems = [];
+                querySnapshot.forEach((docSnap) => { enabledItems.push({ id: docSnap.id, ...docSnap.data() }); });
+
+                state.allEnabledItems = enabledItems;
+                state.masterMenuData.breakfast = enabledItems.filter(i => i.mealType === 'breakfast');
+                state.masterMenuData.lunch = enabledItems.filter(i => i.mealType === 'lunch');
+                state.masterMenuData.dinner = enabledItems.filter(i => i.mealType === 'dinner');
+
+                renderHorizontalItems(state.masterMenuData.breakfast, 'breakfast', 'breakfast-gallery-scroll');
+                renderHorizontalItems(state.masterMenuData.lunch, 'lunch', 'lunch-gallery-scroll');
+                renderHorizontalItems(state.masterMenuData.dinner, 'dinner', 'dinner-gallery-scroll');
+
+                if (state.todaySettings.delivery_charge) {
+                    document.getElementById('dynamic-delivery-charge').innerText = state.todaySettings.delivery_charge;
+                    document.getElementById('deliveryChargeBlock').classList.remove('hidden');
+                }
+
+                updateFavoritesBoard(enabledItems);
+                updateSmartTimeBanner();
+
+                // Image fallback handler
+                setTimeout(() => {
+                    document.querySelectorAll('.menu-img').forEach(img => {
+                        img.onerror = function () {
+                            const fallbackName = this.getAttribute('data-fallback') || 'Dish';
+                            this.outerHTML = getCardPlaceholderHTML(fallbackName);
+                        };
+                    });
+                }, 100);
+
+                if (retryCount > 0) {
+                    showToast("Menu loaded successfully!", "✅");
+                }
+
+            } catch (error) {
+                console.error("Firestore error:", error);
+
+                if (error.message === 'TIMEOUT' || error.code === 'unavailable' || error.code === 'deadline-exceeded') {
+                    if (retryCount < MAX_RETRIES) {
+                        showToast("Retrying connection... (" + (retryCount + 1) + "/" + MAX_RETRIES + ")", "🔄");
+                        setTimeout(() => fetchTodaysMenu(retryCount + 1), 2000);
+                        return;
+                    }
+                    showTimeoutError();
+                } else if (error.code === 'permission-denied') {
+                    console.error("Permission denied. Check Firestore rules.");
+                    showLoadError('breakfast-gallery-scroll', 'Breakfast');
+                    showLoadError('lunch-gallery-scroll', 'Lunch');
+                    showLoadError('dinner-gallery-scroll', 'Dinner');
+                } else {
+                    showLoadError('breakfast-gallery-scroll', 'Breakfast');
+                    showLoadError('lunch-gallery-scroll', 'Lunch');
+                    showLoadError('dinner-gallery-scroll', 'Dinner');
+                }
+            }
+        };
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeDates();
+            updateDeadlines();
+
+            // Refresh deadlines every minute
+            setInterval(updateDeadlines, 60000);
+
+            // Fetch Menu Data
+            window.fetchTodaysMenu();
         });
 
-        // Global image error handler for menu and spotlight items
-        document.addEventListener('error', function (e) {
-            const img = e.target;
-            if (!img || img.tagName !== 'IMG') return;
-            const fallbackName = img.getAttribute('data-fallback') || 'Dish';
-            if (img.classList.contains('menu-img')) {
-                img.outerHTML = getCardPlaceholderHTML(fallbackName);
-            } else if (img.classList.contains('spotlight-img')) {
-                img.outerHTML = getSpotlightPlaceholderHTML(fallbackName);
-            }
-        }, true);
-        window.fetchTodaysMenu = fetchTodaysMenu;
     </script>
 </body>
 
