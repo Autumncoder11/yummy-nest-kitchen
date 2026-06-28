@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full scroll-smooth">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
-    <meta content="#e040a0" name="theme-color"/>
-    <meta content="yes" name="apple-mobile-web-app-capable"/>
-    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-    <title>Yummy Nest Kitchen</title>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-247RJ8FGRG"></script>
-    <script>
+
+<html class="h-full scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="#e040a0" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<title>Yummy Nest Kitchen</title>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-247RJ8FGRG"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-247RJ8FGRG');
     </script>
-    
-    <!-- Tailwind CSS with Forms and Container Queries -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -46,13 +44,11 @@
             }
         }
     </script>
-    
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
-    
-    <style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<style>
         :root {
             --primary: #e040a0;
         }
@@ -271,306 +267,282 @@
     </style>
 </head>
 <body class="min-h-screen pb-safe-nav bg-slate-900 overflow-x-hidden flex justify-center">
-
-    <!-- Screen Wrapper / Max-Width App Shell for Native Feel -->
-    <div class="w-full max-w-md min-h-screen relative flex flex-col shadow-2xl overflow-x-hidden">
-
-        <!-- Toast Notifications (Aligned cleanly on mobile) -->
-        <div class="fixed bottom-24 left-4 right-4 z-[100] transform translate-y-32 opacity-0 transition-all duration-300 ease-out pointer-events-none max-w-[calc(100%-2rem)] mx-auto" id="toastNotification">
-            <div class="glass-card text-slate-800 border-white/80 px-6 py-4 rounded-full flex items-center justify-center gap-3 text-sm font-bold mx-auto max-w-xs shadow-xl">
-                <span class="text-xl" id="toastIcon">❤️</span>
-                <span id="toastMessage" class="truncate">Item liked!</span>
-            </div>
-        </div>
-
-        <!-- App Header Area -->
-        <header class="relative px-5 pt-safe-top pb-6 text-center" id="home">
-            <div class="relative w-24 h-24 mx-auto mb-3 glass-card rounded-full flex items-center justify-center border-2 border-white/90">
-                <span class="text-5xl glow-icon">🐣</span>
-            </div>
-            <h1 class="text-4xl font-black text-slate-800 tracking-tight drop-shadow-sm">Yummy Nest</h1>
-            <div class="flex items-center justify-center gap-2 mt-2">
-                <span class="text-primary-500 glow-icon text-sm">✨</span>
-                <span class="text-xs font-black uppercase tracking-widest text-slate-700">Kitchen</span>
-                <span class="text-primary-500 glow-icon text-sm">✨</span>
-            </div>
-            <p class="text-xs font-extrabold text-slate-700 mt-3 glass-card inline-block px-5 py-2 rounded-full border border-white/60">Joy in every bite! 🍬</p>
-        </header>
-
-        <!-- Smart Cooking Status Banner -->
-        <div class="px-4 mb-4">
-            <div class="glass-card rounded-[28px] p-4 flex items-center justify-between" id="smartTimeBanner">
-                <span class="flex items-center gap-3 text-xs font-bold text-slate-800">
-                    <span class="text-xl text-primary-500 material-symbols-outlined glow-icon">schedule</span>
-                    <span id="smartTimeMsg" class="font-black text-slate-700">Checking kitchen status...</span>
-                </span>
-                <span class="font-black uppercase px-3 py-1.5 rounded-full text-[9px] bg-white/60 text-primary-600 border border-white/80 soft-pulse" id="smartBadge">Fresh</span>
-            </div>
-        </div>
-
-        <!-- Date & Day Display -->
-        <div class="px-4 mb-4">
-            <div class="glass-card rounded-[28px] p-4 flex items-center justify-between text-slate-800">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-white/50 border border-white/60 rounded-full flex items-center justify-center">
-                        <span class="text-xl material-symbols-outlined text-primary-600">event</span>
-                    </div>
-                    <div>
-                        <p class="text-[9px] font-black uppercase tracking-widest text-primary-700 leading-none mb-1" id="currentDay">Loading...</p>
-                        <p class="text-sm font-black text-slate-800" id="currentDate">Loading...</p>
-                    </div>
-                </div>
-                <div class="text-right leading-tight">
-                    <p class="text-[9px] font-black uppercase tracking-wider text-primary-700">DAILY BATCH</p>
-                    <p class="text-xs font-extrabold text-slate-700">Home Cooked <span class="glow-icon">❤️</span></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Operational Ordering Deadlines -->
-        <div class="px-4 mb-6">
-            <div class="glass-card rounded-[28px] p-4 relative overflow-hidden">
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="text-lg material-symbols-outlined text-rose-500">alarm_on</span>
-                    <h3 class="text-xs font-black text-slate-800 uppercase tracking-wider">Order Placement Cutoffs</h3>
-                </div>
-                <div class="grid grid-cols-3 gap-2">
-                    <!-- Breakfast -->
-                    <div class="bg-white/30 border border-white/40 rounded-2xl p-2.5 text-center flex flex-col justify-between">
-                        <div>
-                            <span class="text-xl block mb-1">🥞</span>
-                            <p class="text-[9px] font-black uppercase tracking-wider text-orange-700">Breakfast</p>
-                            <p class="text-[10px] font-bold text-slate-800 mt-0.5">By 8:00 AM</p>
-                        </div>
-                        <div class="mt-2 text-[8px] font-black px-1.5 py-1 rounded-full bg-white/50 text-slate-600 uppercase border border-white/20" id="breakfast-status">...</div>
-                    </div>
-                    <!-- Lunch -->
-                    <div class="bg-white/30 border border-white/40 rounded-2xl p-2.5 text-center flex flex-col justify-between">
-                        <div>
-                            <span class="text-xl block mb-1">🍱</span>
-                            <p class="text-[9px] font-black uppercase tracking-wider text-emerald-700">Lunch</p>
-                            <p class="text-[10px] font-bold text-slate-800 mt-0.5">By 12:00 PM</p>
-                        </div>
-                        <div class="mt-2 text-[8px] font-black px-1.5 py-1 rounded-full bg-white/50 text-slate-600 uppercase border border-white/20" id="lunch-status">...</div>
-                    </div>
-                    <!-- Dinner -->
-                    <div class="bg-white/30 border border-white/40 rounded-2xl p-2.5 text-center flex flex-col justify-between">
-                        <div>
-                            <span class="text-xl block mb-1">🌙</span>
-                            <p class="text-[9px] font-black uppercase tracking-wider text-indigo-700">Dinner</p>
-                            <p class="text-[10px] font-bold text-slate-800 mt-0.5">By 6:30 PM</p>
-                        </div>
-                        <div class="mt-2 text-[8px] font-black px-1.5 py-1 rounded-full bg-white/50 text-slate-600 uppercase border border-white/20" id="dinner-status">...</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kitchen Holiday/Break Indicator -->
-        <div class="px-4 mb-6 hidden" id="holidayBanner">
-            <div class="glass-card rounded-[28px] p-6 text-center border-2 border-amber-300">
-                <div class="text-5xl mb-3 glow-icon">🏖️</div>
-                <h1 class="text-2xl font-black text-slate-800 mb-1">Kitchen Closed Today</h1>
-                <p class="text-xs font-extrabold text-slate-700 mb-4" id="holidayTimeText"></p>
-                <div class="bg-white/60 border border-white backdrop-blur-md text-slate-800 font-black text-xs py-2 px-6 rounded-full inline-block">See you soon! 💖</div>
-            </div>
-        </div>
-
-        <!-- Main Scrollable Feed of Meals -->
-        <main class="px-4 space-y-6" id="menuContainer">
-            
-            <!-- Filters & Sticky Menu Bar (Tightly optimized to float beautifully above content categories with interactive physical transitions) -->
-            <div class="sticky-tabs mb-6 glass-header sticky top-0 z-40 shadow-sm -mx-4">
-                <div class="px-4 pt-3 pb-2">
-                    <div class="glass-card py-2.5 px-6 rounded-full flex items-center justify-center gap-3">
-                        <span class="text-lg glow-icon">🍭</span>
-                        <h2 class="text-sm font-black tracking-wider uppercase text-slate-800">Today's Menu</h2>
-                        <span class="text-lg glow-icon">🍭</span>
-                    </div>
-                </div>
-                <div class="px-4 pb-2">
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-4 flex items-center text-slate-500 material-symbols-outlined">search</span>
-                        <input class="w-full pl-11 pr-10 py-3.5 glass-card rounded-full border-0 focus:ring-2 focus:ring-primary-400 focus:outline-none text-xs font-semibold placeholder-slate-500 text-slate-800 shadow-inner" id="menuSearch" oninput="filterMenuItems()" placeholder="Find your craving..." type="text"/>
-                        <button onclick="clearSearch()" id="searchClearBtn" class="hidden absolute right-4 inset-y-0 flex items-center text-slate-500 material-symbols-outlined text-lg">close</button>
-                    </div>
-                </div>
-                
-                <!-- Animated Filter Swiper Container -->
-                <div class="flex gap-2.5 overflow-x-auto no-scrollbar pb-3.5 pt-1.5 snap-x snap-mandatory px-4 transition-all duration-300 ease-out origin-center hover:bg-white/10" id="filterScrollWrapper">
-                    <button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-slate-800 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filterall" onclick="setDietFilter('all')">🍽️ All</button>
-                    <button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-primary-600 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filternew" onclick="setDietFilter('new')">✨ New</button>
-                    <button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-amber-600 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filterspecial" onclick="setDietFilter('special')">⭐ Specials</button>
-                    <button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-emerald-700 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filterveg" onclick="setDietFilter('veg')">🌿 Veg</button>
-                    <button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-rose-600 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filternonveg" onclick="setDietFilter('nonveg')">🍗 Non-Veg</button>
-                    <button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-purple-600 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filterbestseller" onclick="setDietFilter('bestseller')">🏆 Best Seller</button>
-                </div>
-            </div>
-
-            <!-- Breakfast Category Block -->
-            <section class="menu-section" id="breakfastBlock">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="bg-white/50 border border-white/60 text-orange-500 w-10 h-10 rounded-full flex justify-center items-center text-xl shadow-sm">
-                        <span class="glow-icon">🥞</span>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-black text-slate-800">Breakfast</h3>
-                        <p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Serving 7:30 AM - 10:30 AM</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-1 pb-4" id="breakfast-gallery-scroll">
-                    <div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
-                    <div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
-                </div>
-            </section>
-
-            <!-- Lunch Category Block -->
-            <section class="menu-section" id="lunchBlock">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="bg-white/50 border border-white/60 text-emerald-500 w-10 h-10 rounded-full flex justify-center items-center text-xl shadow-sm">
-                        <span class="glow-icon">🍱</span>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-black text-slate-800">Lunch</h3>
-                        <p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Serving 11:30 AM - 3:30 PM</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-1 pb-4" id="lunch-gallery-scroll">
-                    <div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
-                    <div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
-                </div>
-            </section>
-
-            <!-- Dinner Category Block -->
-            <section class="menu-section" id="dinnerBlock">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="bg-white/50 border border-white/60 text-indigo-500 w-10 h-10 rounded-full flex justify-center items-center text-xl shadow-sm">
-                        <span class="glow-icon">🌙</span>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-black text-slate-800">Dinner</h3>
-                        <p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Serving 7:00 PM - 10:30 PM</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-1 pb-4" id="dinner-gallery-scroll">
-                    <div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
-                    <div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
-                </div>
-            </section>
-
-            <!-- Operational Charges Info Blocks -->
-            <div class="grid grid-cols-2 gap-3">
-                <div class="glass-card rounded-[24px] p-4 text-center flex flex-col justify-center items-center">
-                    <div class="w-10 h-10 bg-white/40 border border-white/60 text-amber-500 rounded-full flex items-center justify-center text-xl mb-1.5 glow-icon">
+<!-- Screen Wrapper / Max-Width App Shell for Native Feel -->
+<div class="w-full max-w-md min-h-screen relative flex flex-col shadow-2xl overflow-x-hidden">
+<!-- Toast Notifications (Aligned cleanly on mobile) -->
+<div class="fixed bottom-24 left-4 right-4 z-[100] transform translate-y-32 opacity-0 transition-all duration-300 ease-out pointer-events-none max-w-[calc(100%-2rem)] mx-auto" id="toastNotification">
+<div class="glass-card text-slate-800 border-white/80 px-6 py-4 rounded-full flex items-center justify-center gap-3 text-sm font-bold mx-auto max-w-xs shadow-xl">
+<span class="text-xl" id="toastIcon">❤️</span>
+<span class="truncate" id="toastMessage">Item liked!</span>
+</div>
+</div>
+<!-- App Header Area -->
+<header class="relative px-5 pt-safe-top pb-6 text-center" id="home">
+<div class="relative w-24 h-24 mx-auto mb-3 glass-card rounded-full flex items-center justify-center border-2 border-white/90">
+<span class="text-5xl glow-icon">🐣</span>
+</div>
+<h1 class="text-4xl font-black text-slate-800 tracking-tight drop-shadow-sm">Yummy Nest</h1>
+<div class="flex items-center justify-center gap-2 mt-2">
+<span class="text-primary-500 glow-icon text-sm">✨</span>
+<span class="text-xs font-black uppercase tracking-widest text-slate-700">Kitchen</span>
+<span class="text-primary-500 glow-icon text-sm">✨</span>
+</div>
+<p class="text-xs font-extrabold text-slate-700 mt-3 glass-card inline-block px-5 py-2 rounded-full border border-white/60">Joy in every bite! 🍬</p>
+</header>
+<!-- Smart Cooking Status Banner -->
+<div class="px-4 mb-4">
+<div class="glass-card rounded-[28px] p-4 flex items-center justify-between" id="smartTimeBanner">
+<span class="flex items-center gap-3 text-xs font-bold text-slate-800">
+<span class="text-xl text-primary-500 material-symbols-outlined glow-icon">schedule</span>
+<span class="font-black text-slate-700" id="smartTimeMsg">Checking kitchen status...</span>
+</span>
+<span class="font-black uppercase px-3 py-1.5 rounded-full text-[9px] bg-white/60 text-primary-600 border border-white/80 soft-pulse" id="smartBadge">Fresh</span>
+</div>
+</div>
+<!-- Date & Day Display -->
+<div class="px-4 mb-4">
+<div class="glass-card rounded-[28px] p-4 flex items-center justify-between text-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white/50 border border-white/60 rounded-full flex items-center justify-center">
+<span class="text-xl material-symbols-outlined text-primary-600">event</span>
+</div>
+<div>
+<p class="text-[9px] font-black uppercase tracking-widest text-primary-700 leading-none mb-1" id="currentDay">Loading...</p>
+<p class="text-sm font-black text-slate-800" id="currentDate">Loading...</p>
+</div>
+</div>
+<div class="text-right leading-tight">
+<p class="text-[9px] font-black uppercase tracking-wider text-primary-700">DAILY BATCH</p>
+<p class="text-xs font-extrabold text-slate-700">Home Cooked <span class="glow-icon">❤️</span></p>
+</div>
+</div>
+</div>
+<!-- Operational Ordering Deadlines -->
+<div class="px-4 mb-6">
+<div class="glass-card rounded-[28px] p-4 relative overflow-hidden">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-lg material-symbols-outlined text-rose-500">alarm_on</span>
+<h3 class="text-xs font-black text-slate-800 uppercase tracking-wider">Order Placement Cutoffs</h3>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<!-- Breakfast -->
+<div class="bg-white/30 border border-white/40 rounded-2xl p-2.5 text-center flex flex-col justify-between">
+<div>
+<span class="text-xl block mb-1">🥞</span>
+<p class="text-[9px] font-black uppercase tracking-wider text-orange-700">Breakfast</p>
+<p class="text-[10px] font-bold text-slate-800 mt-0.5">By 8:00 AM</p>
+</div>
+<div class="mt-2 text-[8px] font-black px-1.5 py-1 rounded-full bg-white/50 text-slate-600 uppercase border border-white/20" id="breakfast-status">...</div>
+</div>
+<!-- Lunch -->
+<div class="bg-white/30 border border-white/40 rounded-2xl p-2.5 text-center flex flex-col justify-between">
+<div>
+<span class="text-xl block mb-1">🍱</span>
+<p class="text-[9px] font-black uppercase tracking-wider text-emerald-700">Lunch</p>
+<p class="text-[10px] font-bold text-slate-800 mt-0.5">By 12:00 PM</p>
+</div>
+<div class="mt-2 text-[8px] font-black px-1.5 py-1 rounded-full bg-white/50 text-slate-600 uppercase border border-white/20" id="lunch-status">...</div>
+</div>
+<!-- Dinner -->
+<div class="bg-white/30 border border-white/40 rounded-2xl p-2.5 text-center flex flex-col justify-between">
+<div>
+<span class="text-xl block mb-1">🌙</span>
+<p class="text-[9px] font-black uppercase tracking-wider text-indigo-700">Dinner</p>
+<p class="text-[10px] font-bold text-slate-800 mt-0.5">By 6:30 PM</p>
+</div>
+<div class="mt-2 text-[8px] font-black px-1.5 py-1 rounded-full bg-white/50 text-slate-600 uppercase border border-white/20" id="dinner-status">...</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Kitchen Holiday/Break Indicator -->
+<div class="px-4 mb-6 hidden" id="holidayBanner">
+<div class="glass-card rounded-[28px] p-6 text-center border-2 border-amber-300">
+<div class="text-5xl mb-3 glow-icon">🏖️</div>
+<h1 class="text-2xl font-black text-slate-800 mb-1">Kitchen Closed Today</h1>
+<p class="text-xs font-extrabold text-slate-700 mb-4" id="holidayTimeText"></p>
+<div class="bg-white/60 border border-white backdrop-blur-md text-slate-800 font-black text-xs py-2 px-6 rounded-full inline-block">See you soon! 💖</div>
+</div>
+</div>
+<!-- Main Scrollable Feed of Meals -->
+<main class="px-4 space-y-6" id="menuContainer">
+<!-- Filters & Sticky Menu Bar (Tightly optimized to float beautifully above content categories with interactive physical transitions) -->
+<div class="sticky-tabs mb-6 glass-header sticky top-0 z-40 shadow-sm -mx-4">
+<div class="px-4 pt-3 pb-2">
+<div class="glass-card py-2.5 px-6 rounded-full flex items-center justify-center gap-3">
+<span class="text-lg glow-icon">🍭</span>
+<h2 class="text-sm font-black tracking-wider uppercase text-slate-800">Today's Menu</h2>
+<span class="text-lg glow-icon">🍭</span>
+</div>
+</div>
+<div class="px-4 pb-2">
+<div class="relative">
+<span class="absolute inset-y-0 left-4 flex items-center text-slate-500 material-symbols-outlined">search</span>
+<input class="w-full pl-11 pr-10 py-3.5 glass-card rounded-full border-0 focus:ring-2 focus:ring-primary-400 focus:outline-none text-xs font-semibold placeholder-slate-500 text-slate-800 shadow-inner" id="menuSearch" oninput="filterMenuItems()" placeholder="Find your craving..." type="text"/>
+<button class="hidden absolute right-4 inset-y-0 flex items-center text-slate-500 material-symbols-outlined text-lg" id="searchClearBtn" onclick="clearSearch()">close</button>
+</div>
+</div>
+<!-- Animated Filter Swiper Container -->
+<div class="flex gap-2.5 overflow-x-auto no-scrollbar pb-3.5 pt-1.5 snap-x snap-mandatory px-4 transition-all duration-300 ease-out origin-center hover:bg-white/10" id="filterScrollWrapper">
+<button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-slate-800 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filterall" onclick="setDietFilter('all')">🍽️ All</button>
+<button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-primary-600 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filternew" onclick="setDietFilter('new')">✨ New</button>
+<button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-amber-600 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filterspecial" onclick="setDietFilter('special')">⭐ Specials</button>
+<button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-emerald-700 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filterveg" onclick="setDietFilter('veg')">🌿 Veg</button>
+<button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-rose-600 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filternonveg" onclick="setDietFilter('nonveg')">🍗 Non-Veg</button>
+<button class="filter-btn press-effect px-5 py-2.5 text-xs font-extrabold rounded-full transition-all duration-300 glass-card text-purple-600 whitespace-nowrap snap-start flex-shrink-0 hover:scale-105 hover:-translate-y-0.5 active:scale-95 shadow-sm" id="filterbestseller" onclick="setDietFilter('bestseller')">🏆 Best Seller</button>
+</div>
+</div>
+<!-- Breakfast Category Block -->
+<section class="menu-section" id="breakfastBlock">
+<div class="flex items-center gap-3 mb-4">
+<div class="bg-white/50 border border-white/60 text-orange-500 w-10 h-10 rounded-full flex justify-center items-center text-xl shadow-sm">
+<span class="glow-icon">🥞</span>
+</div>
+<div>
+<h3 class="text-lg font-black text-slate-800">Breakfast</h3>
+<p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Serving 7:30 AM - 10:30 AM</p>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-1 pb-4" id="breakfast-gallery-scroll">
+<div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
+<div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
+</div>
+</section>
+<!-- Lunch Category Block -->
+<section class="menu-section" id="lunchBlock">
+<div class="flex items-center gap-3 mb-4">
+<div class="bg-white/50 border border-white/60 text-emerald-500 w-10 h-10 rounded-full flex justify-center items-center text-xl shadow-sm">
+<span class="glow-icon">🍱</span>
+</div>
+<div>
+<h3 class="text-lg font-black text-slate-800">Lunch</h3>
+<p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Serving 11:30 AM - 3:30 PM</p>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-1 pb-4" id="lunch-gallery-scroll">
+<div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
+<div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
+</div>
+</section>
+<!-- Dinner Category Block -->
+<section class="menu-section" id="dinnerBlock">
+<div class="flex items-center gap-3 mb-4">
+<div class="bg-white/50 border border-white/60 text-indigo-500 w-10 h-10 rounded-full flex justify-center items-center text-xl shadow-sm">
+<span class="glow-icon">🌙</span>
+</div>
+<div>
+<h3 class="text-lg font-black text-slate-800">Dinner</h3>
+<p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Serving 7:00 PM - 10:30 PM</p>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-1 pb-4" id="dinner-gallery-scroll">
+<div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
+<div class="glass-card h-48 w-40 flex-shrink-0 rounded-[24px] snap-start shimmer"></div>
+</div>
+</section>
+<!-- Operational Charges Info Blocks -->
+<div class="grid grid-cols-2 gap-3">
+<div class="glass-card rounded-[24px] p-4 text-center flex flex-col justify-center items-center overflow-hidden min-h-[140px]">
+<div class="w-10 h-10 bg-white/40 border border-white/60 text-amber-500 rounded-full flex items-center justify-center text-xl mb-1.5 glow-icon">
                         🛍️
                     </div>
-                    <p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Packing Fee</p>
-                    <p class="text-lg font-black text-slate-800 mt-0.5">₹10</p>
-                    <p class="text-[8px] font-black text-slate-500">Dinner orders only</p>
-                </div>
-                <div class="glass-card rounded-[24px] p-4 text-center hidden flex flex-col justify-center items-center" id="deliveryChargeBlock">
-                    <div class="w-10 h-10 bg-white/40 border border-white/60 text-emerald-500 rounded-full flex items-center justify-center text-xl mb-1.5 glow-icon">
+<p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Packing Fee</p>
+<p class="text-lg font-black text-slate-800 mt-0.5">₹10</p>
+<p class="text-[8px] font-black text-slate-500">Dinner orders only</p>
+</div>
+<div class="glass-card rounded-[24px] p-4 text-center hidden flex flex-col justify-center items-center overflow-hidden min-h-[140px]" id="deliveryChargeBlock">
+<div class="w-10 h-10 bg-white/40 border border-white/60 text-emerald-500 rounded-full flex items-center justify-center text-xl mb-1.5 glow-icon">
                         🛵
                     </div>
-                    <p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Delivery Fee</p>
-                    <p class="text-lg font-black text-slate-800 mt-0.5">₹<span id="dynamic-delivery-charge">0</span></p>
-                    <p class="text-[8px] font-black text-slate-500">Delivered hot & fresh</p>
-                </div>
-            </div>
-
-            <!-- Contacts Cards -->
-            <div class="glass-card rounded-[28px] p-6 relative overflow-hidden" id="contact">
-                <div class="absolute -right-4 -bottom-4 text-[100px] opacity-10 glow-icon">💬</div>
-                <h4 class="text-xl font-black mb-4 relative z-10 text-slate-800">Order Now & Say Hello! 👋</h4>
-                <div class="space-y-3.5 text-xs font-bold relative z-10 text-slate-700">
-                    <div class="flex items-center gap-3">
-                        <span class="w-7 h-7 bg-white/50 border border-white/60 rounded-full flex items-center justify-center text-sm glow-icon">📍</span>
-                        <span class="flex-1">Flat B, Yummy Nest Arcade, Coimbatore</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="w-7 h-7 bg-white/50 border border-white/60 rounded-full flex items-center justify-center text-sm glow-icon">📞</span>
-                        <span class="font-black text-slate-900">+91 97893 27773</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="w-7 h-7 bg-white/50 border border-white/60 rounded-full flex items-center justify-center text-sm glow-icon">⏰</span>
-                        <span>Daily kitchen open: 11:30 AM - 10:30 PM</span>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3 mt-6 relative z-10">
-                    <a class="press-effect w-full h-12 bg-white/60 border border-white text-slate-800 flex items-center justify-center font-black rounded-full text-xs shadow-sm" href="tel:+919789327773" onclick="logEvent(analytics, 'generate_lead', { method: 'phone_call' });">Call Store</a>
-                    <a class="press-effect w-full h-12 bg-white/60 border border-white text-emerald-700 flex items-center justify-center font-black rounded-full text-xs shadow-sm" href="https://wa.me/919789327773?text=Hi%20Yummy%20Nest!%20%F0%9F%8D%BD%EF%B8%8F%0A%0AI%20would%20like%20to%20order%3A%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%0A%F0%9F%93%8D%20My%20Location%3A%20%0A%F0%9F%93%9E%20My%20Number%3A%20%0A%0APlease%20confirm%20availability%20and%20total%20amount%20with%20delivery%20charge.%20Thank%20you!%20%F0%9F%99%8F" onclick="logEvent(analytics, 'generate_lead', { method: 'whatsapp' });" target="_blank">WhatsApp Us</a>
-                </div>
-            </div>
-
-            <!-- Customer Fan Favorites Board (Live Likes) -->
-            <div class="glass-card rounded-[28px] p-5" id="poll-board-container">
-                <h4 class="text-base font-black text-slate-800 mb-1 flex items-center gap-2"><span class="glow-icon">💖</span> Fan Favorites Board</h4>
-                <p class="text-[10px] font-bold text-slate-600 mb-3">Vote for your top meals! Likes curate tomorrow's specials.</p>
-                <div class="grid grid-cols-1 gap-2.5" id="poll-board">
-                    <div class="glass-card h-14 rounded-2xl shimmer"></div>
-                    <div class="glass-card h-14 rounded-2xl shimmer"></div>
-                </div>
-            </div>
-
-            <!-- Interactive Share Actions -->
-            <button class="press-effect w-full h-14 glass-card text-slate-800 font-black rounded-full flex items-center justify-center gap-2 text-sm shadow-sm" onclick="shareEntireMenu()">
-                <span class="material-symbols-outlined text-primary-600 glow-icon text-lg">share</span> Share Menu With Friends
+<p class="text-[9px] font-black text-slate-600 uppercase tracking-wider">Delivery Fee</p>
+<p class="text-lg font-black text-slate-800 mt-0.5">₹<span id="dynamic-delivery-charge">0</span></p>
+<p class="text-[8px] font-black text-slate-500">Delivered hot &amp; fresh</p>
+</div>
+</div>
+<!-- Contacts Cards -->
+<div class="glass-card rounded-[28px] p-6 relative overflow-hidden" id="contact">
+<div class="absolute -right-4 -bottom-4 text-[100px] opacity-10 glow-icon">💬</div>
+<h4 class="text-xl font-black mb-4 relative z-10 text-slate-800">Order Now &amp; Say Hello! 👋</h4>
+<div class="space-y-3.5 text-xs font-bold relative z-10 text-slate-700">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 bg-white/50 border border-white/60 rounded-full flex items-center justify-center text-sm glow-icon">📍</span>
+<span class="flex-1">Flat B, Yummy Nest Arcade, Coimbatore</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 bg-white/50 border border-white/60 rounded-full flex items-center justify-center text-sm glow-icon">📞</span>
+<span class="font-black text-slate-900">+91 97893 27773</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 bg-white/50 border border-white/60 rounded-full flex items-center justify-center text-sm glow-icon">⏰</span>
+<span>Daily kitchen open: 11:30 AM - 10:30 PM</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-6 relative z-10">
+<a class="press-effect w-full h-12 bg-white/60 border border-white text-slate-800 flex items-center justify-center font-black rounded-full text-xs shadow-sm" href="tel:+919789327773" onclick="logEvent(analytics, 'generate_lead', { method: 'phone_call' });">Call Store</a>
+<a class="press-effect w-full h-12 bg-white/60 border border-white text-emerald-700 flex items-center justify-center font-black rounded-full text-xs shadow-sm" href="https://wa.me/919789327773?text=Hi%20Yummy%20Nest!%20%F0%9F%8D%BD%EF%B8%8F%0A%0AI%20would%20like%20to%20order%3A%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%0A%F0%9F%93%8D%20My%20Location%3A%20%0A%F0%9F%93%9E%20My%20Number%3A%20%0A%0APlease%20confirm%20availability%20and%20total%20amount%20with%20delivery%20charge.%20Thank%20you!%20%F0%9F%99%8F" onclick="logEvent(analytics, 'generate_lead', { method: 'whatsapp' });" target="_blank">WhatsApp Us</a>
+</div>
+</div>
+<!-- Customer Fan Favorites Board (Live Likes) -->
+<div class="glass-card rounded-[28px] p-5" id="poll-board-container">
+<h4 class="text-base font-black text-slate-800 mb-1 flex items-center gap-2"><span class="glow-icon">💖</span> Fan Favorites Board</h4>
+<p class="text-[10px] font-bold text-slate-600 mb-3">Vote for your top meals! Likes curate tomorrow's specials.</p>
+<div class="grid grid-cols-1 gap-2.5" id="poll-board">
+<div class="glass-card h-14 rounded-2xl shimmer"></div>
+<div class="glass-card h-14 rounded-2xl shimmer"></div>
+</div>
+</div>
+<!-- Interactive Share Actions -->
+<button class="press-effect w-full h-14 glass-card text-slate-800 font-black rounded-full flex items-center justify-center gap-2 text-sm shadow-sm" onclick="shareEntireMenu()">
+<span class="material-symbols-outlined text-primary-600 glow-icon text-lg">share</span> Share Menu With Friends
             </button>
-            
-            <div class="text-center pb-6">
-                <p class="text-[10px] font-bold text-slate-600">Yummy Nest Kitchen • Joy in every bite! <span class="glow-icon">✨</span></p>
-            </div>
-        </main>
-
-        <!-- Dynamic iOS-style Swipe Bottom Sheet Spotlight Modal -->
-        <div class="fixed inset-0 z-50 hidden flex flex-col justify-end" id="spotlightModal">
-            <!-- Modal Overlay Backdrop -->
-            <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onclick="closeSpotlight()"></div>
-            
-            <!-- Bottom Sheet Shell -->
-            <div class="absolute bottom-0 left-0 right-0 glass-card rounded-t-[36px] max-h-[88vh] overflow-y-auto pb-safe-nav z-10" id="spotlightSheet" style="transform: translateY(100%);">
-                <!-- Swipe-Down Handle Anchor Area -->
-                <div class="sticky top-0 bg-white/20 backdrop-blur-md pt-3 pb-3 px-4 z-20 flex justify-center cursor-row-resize" id="dragHandle">
-                    <div class="w-12 h-1.5 bg-slate-400/60 rounded-full shadow-inner"></div>
-                </div>
-                <div class="px-5 pb-8 pt-1 space-y-5" id="spotlightBody"></div>
-            </div>
-        </div>
-
-        <!-- Float WhatsApp Button (safely anchored above primary navigation actions) -->
-        <a class="fixed bottom-24 right-4 glass-card border-white text-emerald-500 w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-40 press-effect soft-pulse glow-icon" href="https://wa.me/919789327773?text=Hi%20Yummy%20Nest!%20%F0%9F%8D%BD%EF%B8%8F%0A%0AI%20would%20like%20to%20order%3A%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%0A%F0%9F%93%8D%20My%20Location%3A%20%0A%F0%9F%93%9E%20My%20Number%3A%20%0A%0APlease%20confirm%20availability%20and%20total%20amount%20with%20delivery%20charge.%20Thank%20you!%20%F0%9F%99%8F" onclick="logEvent(analytics, 'generate_lead', { method: 'whatsapp_fab' });" target="_blank">
-            <svg fill="currentColor" height="26" viewBox="0 0 16 16" width="26" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
-            </svg>
-        </a>
-
-        <!-- Glassmorphic Fixed Bottom Navigation Menu -->
-        <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/35 backdrop-blur-xl border-t border-white/50 pb-[env(safe-area-inset-bottom,12px)] shadow-[0_-8px_32px_rgba(0,0,0,0.06)] max-w-md mx-auto">
-            <div class="flex justify-around items-center h-[4.5rem] px-2 w-full">
-                <a class="flex flex-col items-center justify-center text-primary-600 relative flex-1 press-effect h-full" href="#home" onclick="setActiveNav(this)">
-                    <span class="text-xl material-symbols-outlined filled glow-icon">home</span>
-                    <span class="text-[9px] font-black mt-1">Home</span>
-                    <span class="absolute bottom-2 w-1.5 h-1.5 bg-primary-500 rounded-full" id="navIndicator"></span>
-                </a>
-                <a class="flex flex-col items-center justify-center text-slate-600 hover:text-primary-600 flex-1 press-effect h-full" href="#menuContainer" onclick="setActiveNav(this)">
-                    <span class="text-xl material-symbols-outlined glow-icon">restaurant_menu</span>
-                    <span class="text-[9px] font-black mt-1">Menu</span>
-                </a>
-                <a class="flex flex-col items-center justify-center text-slate-600 hover:text-primary-600 flex-1 press-effect h-full" href="#poll-board-container" onclick="setActiveNav(this)">
-                    <span class="text-xl material-symbols-outlined glow-icon">favorite</span>
-                    <span class="text-[9px] font-black mt-1">Favs</span>
-                </a>
-                <a class="flex flex-col items-center justify-center text-slate-600 hover:text-primary-600 flex-1 press-effect h-full" href="#contact" onclick="setActiveNav(this)">
-                    <span class="text-xl material-symbols-outlined glow-icon">chat_bubble</span>
-                    <span class="text-[9px] font-black mt-1">Chat</span>
-                </a>
-            </div>
-        </nav>
-
-    </div>
-
-    <!-- Application Code Modules -->
-    <script type="module">
+<div class="text-center pb-6">
+<p class="text-[10px] font-bold text-slate-600">Yummy Nest Kitchen • Joy in every bite! <span class="glow-icon">✨</span></p>
+</div>
+</main>
+<!-- Dynamic iOS-style Swipe Bottom Sheet Spotlight Modal -->
+<div class="fixed inset-0 z-50 hidden flex flex-col justify-end" id="spotlightModal">
+<!-- Modal Overlay Backdrop -->
+<div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onclick="closeSpotlight()"></div>
+<!-- Bottom Sheet Shell -->
+<div class="absolute bottom-0 left-0 right-0 glass-card rounded-t-[36px] max-h-[88vh] overflow-y-auto pb-safe-nav z-10" id="spotlightSheet" style="transform: translateY(100%);">
+<!-- Swipe-Down Handle Anchor Area -->
+<div class="sticky top-0 bg-white/20 backdrop-blur-md pt-3 pb-3 px-4 z-20 flex justify-center cursor-row-resize" id="dragHandle">
+<div class="w-12 h-1.5 bg-slate-400/60 rounded-full shadow-inner"></div>
+</div>
+<div class="px-5 pb-8 pt-1 space-y-5" id="spotlightBody"></div>
+</div>
+</div>
+<!-- Float WhatsApp Button (safely anchored above primary navigation actions) -->
+<a class="fixed bottom-24 right-4 glass-card border-white text-emerald-500 w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-40 press-effect soft-pulse glow-icon" href="https://wa.me/919789327773?text=Hi%20Yummy%20Nest!%20%F0%9F%8D%BD%EF%B8%8F%0A%0AI%20would%20like%20to%20order%3A%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%0A%F0%9F%93%8D%20My%20Location%3A%20%0A%F0%9F%93%9E%20My%20Number%3A%20%0A%0APlease%20confirm%20availability%20and%20total%20amount%20with%20delivery%20charge.%20Thank%20you!%20%F0%9F%99%8F" onclick="logEvent(analytics, 'generate_lead', { method: 'whatsapp_fab' });" target="_blank">
+<svg fill="currentColor" height="26" viewbox="0 0 16 16" width="26" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+</svg>
+</a>
+<!-- Glassmorphic Fixed Bottom Navigation Menu -->
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/35 backdrop-blur-xl border-t border-white/50 pb-[env(safe-area-inset-bottom,12px)] shadow-[0_-8px_32px_rgba(0,0,0,0.06)] max-w-md mx-auto">
+<div class="flex justify-around items-center h-[4.5rem] px-2 w-full">
+<a class="flex flex-col items-center justify-center text-primary-600 relative flex-1 press-effect h-full" href="#home" onclick="setActiveNav(this)">
+<span class="text-xl material-symbols-outlined filled glow-icon">home</span>
+<span class="text-[9px] font-black mt-1">Home</span>
+<span class="absolute bottom-2 w-1.5 h-1.5 bg-primary-500 rounded-full" id="navIndicator"></span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-600 hover:text-primary-600 flex-1 press-effect h-full" href="#menuContainer" onclick="setActiveNav(this)">
+<span class="text-xl material-symbols-outlined glow-icon">restaurant_menu</span>
+<span class="text-[9px] font-black mt-1">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-600 hover:text-primary-600 flex-1 press-effect h-full" href="#poll-board-container" onclick="setActiveNav(this)">
+<span class="text-xl material-symbols-outlined glow-icon">favorite</span>
+<span class="text-[9px] font-black mt-1">Favs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-600 hover:text-primary-600 flex-1 press-effect h-full" href="#contact" onclick="setActiveNav(this)">
+<span class="text-xl material-symbols-outlined glow-icon">chat_bubble</span>
+<span class="text-[9px] font-black mt-1">Chat</span>
+</a>
+</div>
+</nav>
+</div>
+<!-- Application Code Modules -->
+<script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
         import { getFirestore, collection, getDocs, doc, getDoc, runTransaction, query, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -1046,26 +1018,26 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-4 rounded-[22px]">
+                <div class="glass-card p-5 rounded-[22px] overflow-hidden">
                     <strong class="text-xs text-slate-800 font-black block mb-1">Chef Description</strong>
-                    <p class="text-slate-700 text-xs font-bold leading-relaxed">"${dish.description}"</p>
+                    <p class="text-slate-700 text-xs font-bold leading-relaxed break-words">"${dish.description}"</p>
                 </div>
 
                 <div class="space-y-2.5">
-                    <div class="glass-card p-4.5 rounded-[22px]">
+                    <div class="glass-card p-5 rounded-[22px] overflow-hidden">
                         <strong class="text-xs text-slate-800 font-black block mb-1 flex items-center gap-2">
                             <span class="glow-icon">🥣</span> Ingredients Details
                         </strong>
-                        <p class="text-slate-700 text-xs font-medium leading-relaxed">${dish.ingredients}</p>
+                        <p class="text-slate-700 text-xs font-medium leading-relaxed break-words">${dish.ingredients}</p>
                     </div>
                     <div class="grid grid-cols-2 gap-2.5">
-                        <div class="glass-card p-3.5 rounded-[22px]">
+                        <div class="glass-card p-5 rounded-[22px] overflow-hidden">
                             <strong class="text-[10px] text-orange-900 font-black block mb-0.5 uppercase tracking-wide">⚠️ Allergens</strong>
-                            <p class="text-orange-800 text-[10px] font-bold leading-snug">${dish.allergens}</p>
+                            <p class="text-orange-800 text-[10px] font-bold leading-snug break-words">${dish.allergens}</p>
                         </div>
-                        <div class="glass-card p-3.5 rounded-[22px]">
+                        <div class="glass-card p-5 rounded-[22px] overflow-hidden">
                             <strong class="text-[10px] text-emerald-900 font-black block mb-0.5 uppercase tracking-wide">💪 Nutrients</strong>
-                            <p class="text-emerald-800 text-[10px] font-bold leading-snug">${dish.nutrition}</p>
+                            <p class="text-emerald-800 text-[10px] font-bold leading-snug break-words">${dish.nutrition}</p>
                         </div>
                     </div>
                 </div>
@@ -1406,5 +1378,4 @@
         });
 
     </script>
-</body>
-</html>
+</body></html>
