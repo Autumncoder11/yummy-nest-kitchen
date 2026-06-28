@@ -1,36 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#1e4620">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Yummy Nest Kitchen</title>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-247RJ8FGRG"></script>
-    <script>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="#e040a0" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<title>Yummy Nest Kitchen</title>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-247RJ8FGRG"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-247RJ8FGRG');
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playpen+Sans:wght@300;400;600;800&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fdf3f8',
+                            100: '#fbe5f1',
+                            200: '#f8cbe2',
+                            300: '#f2a2cd',
+                            400: '#ea6db1',
+                            500: '#e040a0',
+                            600: '#c9247d',
+                            700: '#ad1865',
+                            800: '#8e1654',
+                            900: '#771648',
+                            950: '#480829',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        display: ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
         :root {
-            --forest: #1e4620;
-            --cream: #fdfaf2;
-            --paper: #fcf9f2;
-            --gold: #c4a46a;
-            --crimson: #ba2323;
-            --wine: #5c161d;
+            --primary: #e040a0;
         }
 
         * {
@@ -43,47 +61,33 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--paper);
-            color: #2c221e;
+            font-family: 'DM Sans', sans-serif;
+            background-color: #fdf3f8;
+            color: #1a1a1a;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        .font-cursive {
-            font-family: 'Great Vibes', cursive;
-        }
-
-        .font-vintage {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .font-menu {
-            font-family: 'Playpen Sans', cursive;
-        }
-
-        .paper-bg {
-            background-color: var(--cream);
-            background-image: radial-gradient(#ece3cb 1px, transparent 0), radial-gradient(#ece3cb 1px, var(--cream) 0);
-            background-size: 24px 24px;
-            background-position: 0 0, 12px 12px;
-        }
-
         .pb-safe {
-            padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+            padding-bottom: max(6rem, env(safe-area-inset-bottom) + 5rem);
+        }
+
+        .min-touch {
+            min-height: 48px;
+            min-width: 48px;
         }
 
         .touch-btn {
-            min-height: 44px;
-            min-width: 44px;
+            min-height: 48px;
+            min-width: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .press-effect:active {
-            transform: scale(0.97);
-            transition: transform 0.1s;
+        a:active, button:active, .press-effect:active {
+            transform: scale(0.95);
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .snap-x {
@@ -105,47 +109,28 @@
         }
 
         @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-
-            100% {
-                background-position: 200% 0;
-            }
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
         .shimmer {
-            background: linear-gradient(90deg, #f0e6d3 25%, #e5dcc3 50%, #f0e6d3 75%);
+            background: linear-gradient(90deg, #fbe5f1 25%, #f8cbe2 50%, #fbe5f1 75%);
             background-size: 200% 100%;
             animation: shimmer 1.5s infinite;
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .toast-slide {
-            animation: slideUp 0.3s ease-out;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes softPulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .soft-pulse {
@@ -153,51 +138,44 @@
         }
 
         @keyframes heartPop {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.3);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
         }
 
         .heart-pop {
-            animation: heartPop 0.3s ease;
+            animation: heartPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .like-btn-active {
-            background: linear-gradient(135deg, #ba2323 0%, #8b1a1a 100%) !important;
+            background: var(--primary) !important;
             color: white !important;
-            border-color: #ba2323 !important;
-            box-shadow: 0 4px 12px rgba(186, 35, 35, 0.3) !important;
+            border-color: var(--primary) !important;
+            box-shadow: 0 4px 12px rgba(224, 64, 160, 0.4) !important;
         }
 
         .like-count-pop {
-            animation: heartPop 0.3s ease;
+            animation: heartPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .card-like-btn {
             position: absolute;
-            top: 2px;
-            right: 2px;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.95);
+            top: 8px;
+            right: 8px;
+            width: 36px;
+            height: 36px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
             border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 13px;
+            font-size: 18px;
             cursor: pointer;
             z-index: 20;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-            transition: all 0.15s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card-like-btn:active {
@@ -205,28 +183,30 @@
         }
 
         .card-like-btn.liked {
-            background: #ba2323;
+            background: var(--primary);
             color: white;
         }
 
         .card-like-count {
             position: absolute;
-            bottom: 2px;
-            right: 2px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            padding: 1px 5px;
-            font-size: 9px;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 9999px;
+            padding: 4px 8px;
+            font-size: 11px;
             font-weight: 800;
-            color: #ba2323;
+            color: var(--primary);
             z-index: 20;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            line-height: 1.4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1;
         }
 
         .empty-state {
-            background: linear-gradient(135deg, #f8f5ef 0%, #f0ebe0 100%);
-            border: 2px dashed #d4c9b0;
+            background: white;
+            border: 2px dashed #f8cbe2;
+            border-radius: 24px;
         }
 
         .modal-enter {
@@ -237,7 +217,7 @@
         .modal-enter-active {
             opacity: 1;
             transform: translateY(0);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-out;
         }
 
         .modal-exit {
@@ -248,419 +228,322 @@
         .modal-exit-active {
             opacity: 0;
             transform: translateY(100%);
-            transition: all 0.25s ease-in;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in;
         }
 
         .sticky-tabs {
             position: sticky;
             top: 0;
             z-index: 40;
+            background: rgba(253, 243, 248, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
 
         .food-card {
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 24px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-
+        
         .food-card:active {
-            transform: scale(0.98);
-        }
-
-        @media (hover: hover) {
-            .food-card:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
-            }
+            transform: translateY(2px) scale(0.98);
         }
 
         .price-tag {
-            background: linear-gradient(135deg, var(--crimson) 0%, #8b1a1a 100%);
+            background: var(--primary);
         }
 
         .special-card {
-            border: 2px solid #f59e0b;
+            box-shadow: 0 0 0 2px #fbbf24;
         }
 
         .new-today-card {
-            border: 2px solid #e11d48;
+            box-shadow: 0 0 0 2px var(--primary);
         }
 
         .new-today-badge,
         .special-badge {
             position: absolute;
-            top: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 8px;
+            top: 8px;
+            left: 8px;
+            font-size: 10px;
             font-weight: 800;
             color: white;
-            padding: 2px 6px;
-            border-bottom-left-radius: 6px;
-            border-bottom-right-radius: 6px;
+            padding: 4px 8px;
+            border-radius: 9999px;
             z-index: 10;
             white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .new-today-badge {
-            background: #e11d48;
+            background: var(--primary);
         }
 
         .special-badge {
-            background: #f59e0b;
+            background: #fbbf24;
+            color: #78350f;
         }
     </style>
 </head>
-
-<body class="paper-bg min-h-screen pb-safe">
-
-    <!-- Toast -->
-    <div id="toastNotification"
-        class="fixed bottom-24 left-4 right-4 z-50 transform translate-y-32 opacity-0 transition-all duration-300 ease-out pointer-events-none">
-        <div
-            class="bg-[#1e4620] text-[#fdfaf2] px-5 py-3.5 rounded-2xl shadow-2xl flex items-center justify-center gap-2 text-sm font-semibold mx-auto max-w-sm">
-            <span id="toastIcon">❤️</span>
-            <span id="toastMessage">Item liked!</span>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header class="relative px-4 pt-6 pb-2 text-center">
-        <div class="absolute top-2 left-2 w-12 opacity-70 pointer-events-none">
-            <svg viewBox="0 0 100 100" fill="none">
-                <path d="M10 10C25 20 40 15 55 5C60 20 50 35 35 45M10 10C20 30 15 50 5 65C20 70 35 60 45 45"
-                    stroke="#1e4620" stroke-width="3" stroke-linecap="round" />
-                <path d="M25 22C28 15 35 12 42 15C38 22 30 25 25 22Z" fill="#1e4620" />
-                <path d="M16 35C12 40 10 48 15 52C20 48 20 38 16 35Z" fill="#1e4620" />
-            </svg>
-        </div>
-        <div class="absolute top-2 right-2 w-12 opacity-70 pointer-events-none scale-x-[-1]">
-            <svg viewBox="0 0 100 100" fill="none">
-                <path d="M10 10C25 20 40 15 55 5C60 20 50 35 35 45M10 10C20 30 15 50 5 65C20 70 35 60 45 45"
-                    stroke="#1e4620" stroke-width="3" stroke-linecap="round" />
-                <path d="M25 22C28 15 35 12 42 15C38 22 30 25 25 22Z" fill="#1e4620" />
-                <path d="M16 35C12 40 10 48 15 52C20 48 20 38 16 35Z" fill="#1e4620" />
-            </svg>
-        </div>
-        <div class="relative w-28 h-20 mx-auto mb-1">
-            <svg viewBox="0 0 200 120" class="w-full h-full">
-                <path
-                    d="M100 25C100 25 96 17 89 17C81 17 78 24 82 31C86 38 100 48 100 48C100 48 114 38 118 31C122 24 119 17 111 17C104 17 100 25 100 25Z"
-                    fill="#ba2323" />
-                <g stroke="#555" stroke-width="4" stroke-linecap="round">
-                    <line x1="82" y1="52" x2="118" y2="16" />
-                    <path d="M112 22C116 18 123 19 126 23C130 27 129 33 125 37L117 27" fill="#888" stroke="#555"
-                        stroke-width="3" />
-                    <line x1="118" y1="52" x2="82" y2="16" />
-                    <path d="M88 22C84 18 78 21 75 25C72 29 74 35 78 38L86 28" fill="#888" stroke="#555"
-                        stroke-width="3" />
-                </g>
-                <g stroke="#614125" stroke-linecap="round" fill="none">
-                    <path d="M50 72C50 72 70 52 100 52C130 52 150 72 150 72" stroke-width="5" />
-                    <path d="M45 70C60 95 140 95 155 70" stroke-width="7" />
-                    <path d="M50 78C70 102 130 102 150 78" stroke-width="5" />
-                    <path d="M60 85C80 106 120 106 140 85" stroke-width="3" />
-                </g>
-            </svg>
-        </div>
-        <h1 class="text-5xl font-cursive text-[#ba2323] leading-none">Yummy Nest</h1>
-        <div class="flex items-center justify-center gap-2 mt-1">
-            <span class="text-lg text-[#b09353]">➔</span>
-            <span class="text-xl font-bold uppercase tracking-[0.2em] font-vintage text-[#1e4620]">Kitchen</span>
-            <span class="text-lg text-[#b09353]">←</span>
-        </div>
-        <p class="text-xs font-semibold italic text-[#876e43] mt-1">🍃 From Our Nest to Your Plate 🍃</p>
-    </header>
-
-    <!-- Banner -->
-    <div class="px-4 mb-4">
-        <div
-            class="bg-[#1e4620] text-[#fcf9f2] py-3 px-4 rounded-2xl shadow-md border-y-2 border-[#c4a46a] flex items-center justify-center gap-2">
-            <span class="text-yellow-400 text-sm">❖</span>
-            <h2 class="text-lg font-extrabold tracking-[0.15em] uppercase font-vintage">Today's Menu</h2>
-            <span class="text-yellow-400 text-sm">❖</span>
-        </div>
-    </div>
-
-    <!-- Smart Time -->
-    <div class="px-4 mb-4">
-        <div id="smartTimeBanner"
-            class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex items-center justify-between">
-            <span class="flex items-center gap-2 text-xs font-medium text-emerald-900">
-                <span class="text-base">🕒</span>
-                <span id="smartTimeMsg">Checking kitchen...</span>
-            </span>
-            <span id="smartBadge"
-                class="font-extrabold uppercase px-2.5 py-1 rounded-full text-[10px] bg-emerald-200 text-emerald-800 soft-pulse">Fresh</span>
-        </div>
-    </div>
-
-    <!-- Date & Day Banner -->
-    <div class="px-4 mb-4">
-        <div
-            class="bg-[#1e4620] rounded-2xl p-4 shadow-md border border-[#c4a46a]/30 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-[#c4a46a]/20 rounded-xl flex items-center justify-center">
-                    <span class="text-xl">📅</span>
-                </div>
-                <div>
-                    <p id="currentDay" class="text-[10px] font-bold uppercase tracking-widest text-[#c4a46a]">Loading...
-                    </p>
-                    <p id="currentDate" class="text-sm font-bold text-[#fdfaf2]">Loading...</p>
-                </div>
-            </div>
-            <div class="text-right">
-                <p class="text-[10px] font-bold uppercase tracking-wider text-[#c4a46a]">Today's Menu</p>
-                <p class="text-xs font-semibold text-[#fdfaf2]/80">Freshly Prepared</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Order Window / Deadline Banner -->
-    <div class="px-4 mb-4">
-        <div class="bg-[#fdfaf2] border-2 border-[#c4a46a] rounded-2xl p-4 shadow-md relative overflow-hidden">
-            <!-- Decorative corner accent -->
-            <div class="absolute top-0 right-0 w-16 h-16 bg-[#c4a46a]/10 rounded-bl-full"></div>
-
-            <div class="flex items-center gap-2 mb-3">
-                <span class="text-lg">⏰</span>
-                <h3 class="text-sm font-black uppercase tracking-wider text-[#1e4620]">Order Before It's Too Late!</h3>
-            </div>
-
-            <div class="grid grid-cols-3 gap-2">
-                <!-- Breakfast -->
-                <div class="bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-center relative">
-                    <span class="text-lg block mb-0.5">🥞</span>
-                    <p class="text-[9px] font-bold uppercase tracking-wider text-amber-700">Breakfast</p>
-                    <p class="text-xs font-black text-[#ba2323] mt-0.5">Before 8:00 AM</p>
-                    <div id="breakfast-status"
-                        class="mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-neutral-200 text-neutral-500 uppercase">
-                        Checking...</div>
-                </div>
-
-                <!-- Lunch -->
-                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-center relative">
-                    <span class="text-lg block mb-0.5">🍛</span>
-                    <p class="text-[9px] font-bold uppercase tracking-wider text-emerald-700">Lunch</p>
-                    <p class="text-xs font-black text-[#ba2323] mt-0.5">Before 12:00 PM</p>
-                    <div id="lunch-status"
-                        class="mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-neutral-200 text-neutral-500 uppercase">
-                        Checking...</div>
-                </div>
-
-                <!-- Dinner -->
-                <div class="bg-[#5c161d]/5 border border-[#5c161d]/20 rounded-xl p-2.5 text-center relative">
-                    <span class="text-lg block mb-0.5">🌙</span>
-                    <p class="text-[9px] font-bold uppercase tracking-wider text-[#5c161d]">Dinner</p>
-                    <p class="text-xs font-black text-[#ba2323] mt-0.5">Before 6:30 PM</p>
-                    <div id="dinner-status"
-                        class="mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-neutral-200 text-neutral-500 uppercase">
-                        Checking...</div>
-                </div>
-            </div>
-
-            <p class="text-[9px] text-center text-neutral-400 mt-2 font-medium italic">Orders placed after deadline will
-                be processed for next available slot</p>
-        </div>
-    </div>
-
-    <!-- Filters -->
-    <div class="mb-4 sticky-tabs bg-[#fcf9f2]/90 border-b border-[#e1d3b4]">
-        <div class="py-3 space-y-3 px-4">
-            <div class="relative">
-                <span class="absolute inset-y-0 left-3 flex items-center text-neutral-400 text-sm">🔍</span>
-                <input type="text" id="menuSearch" oninput="filterMenuItems()" placeholder="Search dishes..."
-                    class="w-full pl-9 pr-4 py-3 bg-white rounded-xl border border-[#c4a46a]/50 focus:ring-2 focus:ring-[#1e4620] focus:outline-none text-sm shadow-sm">
-            </div>
-        </div>
-        <div class="flex gap-2 overflow-x-auto no-scrollbar pb-3 snap-x snap-mandatory px-4">
-            <button onclick="setDietFilter('all')" id="filterall"
-                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-[#1e4620] text-white whitespace-nowrap shadow-sm snap-start flex-shrink-0">🍽️
-                All Food</button>
-            <button onclick="setDietFilter('veg')" id="filterveg"
-                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-emerald-800 border border-emerald-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🌿
-                Veg Only</button>
-            <button onclick="setDietFilter('nonveg')" id="filternonveg"
-                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-rose-800 border border-rose-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🍗
-                Non Veg</button>
-            <button onclick="setDietFilter('special')" id="filterspecial"
-                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-amber-800 border border-amber-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🔥
-                Specials</button>
-            <button onclick="setDietFilter('bestseller')" id="filterbestseller"
-                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-purple-800 border border-purple-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🏆
-                Best Sellers</button>
-            <button onclick="setDietFilter('new')" id="filternew"
-                class="filter-btn touch-btn px-5 py-2.5 text-xs font-bold rounded-full transition-all bg-white text-rose-600 border border-rose-200 whitespace-nowrap shadow-sm snap-start flex-shrink-0">🆕
-                New Today</button>
-            <div class="w-4 flex-shrink-0 snap-start"></div>
-        </div>
-    </div>
-
-    <!-- Holiday -->
-    <div id="holidayBanner" class="px-4 mb-6 hidden">
-        <div class="bg-[#fdfcf7] border-2 border-amber-200 rounded-3xl p-6 text-center shadow-lg border-dashed">
-            <div
-                class="bg-[#1e4620] text-yellow-400 text-xs font-black uppercase tracking-widest py-1.5 px-4 rounded-md inline-block mb-3">
-                ➔ NOTICE ➔</div>
-            <p id="holidayTimeText" class="text-xl font-serif font-extrabold text-stone-700 italic mb-1"></p>
-            <h1 class="text-4xl font-black text-[#1e4620] uppercase">Will Be<br><span
-                    class="text-[#ba2323] text-5xl">Leave</span></h1>
-            <p class="text-sm font-bold text-stone-600 mt-3">We will be back soon!</p>
-            <div class="mt-4 bg-[#1e4620] text-white font-bold text-xs py-2.5 px-6 rounded-full inline-block">Thank you
-                ❤️</div>
-        </div>
-    </div>
-
-    <!-- Main -->
-    <main id="menuContainer" class="px-4 space-y-6">
-        <section id="breakfastBlock" class="menu-section">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="bg-amber-500 text-white p-2.5 rounded-xl shadow-sm">
-                    <svg viewBox="0 0 100 100" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="6"
-                        stroke-linecap="round">
-                        <circle cx="50" cy="50" r="20" />
-                        <path d="M50 15V25M50 75V85M15 50H25M75 50H85M25 25l7 7M68 68l7 7M25 75l7-7M68 32l7-7" />
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-extrabold font-vintage text-amber-700">Breakfast</h3>
-                    <p class="text-[10px] font-bold text-amber-700/60 uppercase tracking-wider">7:30 AM - 10:30 AM</p>
-                </div>
-            </div>
-            <div id="breakfast-gallery-scroll" class="flex gap-3 overflow-x-auto snap-x no-scrollbar mb-2 pb-2">
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-            </div>
-        </section>
-
-        <section id="lunchBlock" class="menu-section">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="bg-[#1e4620] text-white p-2.5 rounded-xl shadow-sm">
-                    <svg viewBox="0 0 100 100" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="6"
-                        stroke-linecap="round">
-                        <path d="M15 80H85" />
-                        <path d="M25 70C25 40 75 40 75 70H25Z" />
-                        <circle cx="50" cy="30" r="5" fill="currentColor" />
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-extrabold font-vintage text-[#1e4620]">Lunch</h3>
-                    <p class="text-[10px] font-bold text-[#1e4620]/60 uppercase tracking-wider">11:30 AM - 3:30 PM</p>
-                </div>
-            </div>
-            <div id="lunch-gallery-scroll" class="flex gap-3 overflow-x-auto snap-x no-scrollbar mb-2 pb-2">
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-            </div>
-        </section>
-
-        <section id="dinnerBlock" class="menu-section">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="bg-[#5c161d] text-white p-2.5 rounded-xl shadow-sm">
-                    <svg viewBox="0 0 100 100" class="w-5 h-5" fill="none">
-                        <path d="M75 55C75 70 60 85 40 85C20 85 15 70 15 50C15 30 30 15 50 15C45 25 45 45 75 55Z"
-                            fill="currentColor" />
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-extrabold font-vintage text-[#5c161d]">Dinner</h3>
-                    <p class="text-[10px] font-bold text-[#5c161d]/60 uppercase tracking-wider">7:00 PM - 10:30 PM</p>
-                </div>
-            </div>
-            <div id="dinner-gallery-scroll" class="flex gap-3 overflow-x-auto snap-x no-scrollbar mb-2 pb-2">
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-                <div class="shimmer h-40 w-32 flex-shrink-0 rounded-xl snap-start"></div>
-            </div>
-        </section>
-
-        <div class="grid grid-cols-2 gap-3">
-            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-center">
-                <div class="text-2xl mb-1">📦</div>
-                <p class="text-[10px] font-bold text-amber-800 uppercase tracking-wider">Packing</p>
-                <p class="text-lg font-black text-[#5c161d]">₹10</p>
-                <p class="text-[9px] text-neutral-500">Dinner only</p>
-            </div>
-            <div id="deliveryChargeBlock"
-                class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-center hidden">
-                <div class="text-2xl mb-1">🛵</div>
-                <p class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider">Delivery</p>
-                <p class="text-lg font-black text-[#1e4620]">₹<span id="dynamic-delivery-charge">0</span></p>
-                <p class="text-[9px] text-neutral-500">To your door</p>
-            </div>
-        </div>
-
-        <div class="bg-[#1e4620] text-white rounded-3xl p-5 shadow-lg relative overflow-hidden">
-            <div class="absolute right-[-10px] bottom-[-10px] opacity-10 text-8xl">📞</div>
-            <h4 class="text-lg font-bold font-vintage text-[#fdfaf2] mb-3">Contact Our Nest</h4>
-            <div class="space-y-2.5 text-sm text-emerald-100">
-                <div class="flex items-center gap-2"><span>📍</span><span class="text-xs">Flat B, Yummy Nest Arcade,
-                        Coimbatore</span></div>
-                <div class="flex items-center gap-2"><span>📞</span><span class="font-bold text-sm">+91 97893
-                        27773</span></div>
-                <div class="flex items-center gap-2"><span>🕒</span><span class="text-xs">Daily: 11:30 AM - 10:30
-                        PM</span></div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 mt-4">
-                <a href="tel:+919789327773" onclick="logEvent(analytics, 'generate_lead', { method: 'phone_call' });"
-                    class="touch-btn bg-yellow-500 text-[#2c221e] text-center font-bold py-3 rounded-xl text-xs">📞 Call
-                    Now</a>
-                <a href="https://wa.me/919789327773?text=Hi%20Yummy%20Nest!%20%F0%9F%8D%BD%EF%B8%8F%0A%0AI%20would%20like%20to%20order%3A%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%0A%F0%9F%93%8D%20My%20Location%3A%20%0A%F0%9F%93%9E%20My%20Number%3A%20%0A%0APlease%20confirm%20availability%20and%20total%20amount%20with%20delivery%20charge.%20Thank%20you!%20%F0%9F%99%8F"
-                    target="_blank" onclick="logEvent(analytics, 'generate_lead', { method: 'whatsapp' });"
-                    class="touch-btn bg-white/10 text-white text-center font-bold py-3 rounded-xl text-xs border border-white/30">💬
-                    WhatsApp</a>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-3xl p-5 shadow-md border border-[#e5dcc3]">
-            <h4 class="text-base font-bold font-vintage text-neutral-800 mb-1">🔥 All-Time Favorites</h4>
-            <p class="text-[10px] text-neutral-500 mb-3">Tap ❤️ to vote! Likes are permanent.</p>
-            <div class="grid grid-cols-2 gap-2" id="poll-board">
-                <div class="shimmer h-16 rounded-xl"></div>
-                <div class="shimmer h-16 rounded-xl"></div>
-                <div class="shimmer h-16 rounded-xl"></div>
-                <div class="shimmer h-16 rounded-xl"></div>
-            </div>
-        </div>
-
-        <button onclick="shareEntireMenu()"
-            class="touch-btn w-full bg-[#1e4620] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 text-sm">
-            <span>📲</span> Share Full Menu
+<body class="min-h-screen pb-safe">
+<!-- Toast -->
+<div class="fixed bottom-32 left-4 right-4 z-[60] transform translate-y-32 opacity-0 transition-all duration-300 ease-out pointer-events-none" id="toastNotification">
+<div class="bg-primary-500 text-white px-6 py-4 rounded-full shadow-xl flex items-center justify-center gap-3 text-sm font-bold mx-auto max-w-sm">
+<span class="text-xl" id="toastIcon">❤️</span>
+<span id="toastMessage">Item liked!</span>
+</div>
+</div>
+<!-- Header -->
+<header class="relative px-4 pt-[max(2rem,env(safe-area-inset-top))] pb-4 text-center" id="home">
+<div class="relative w-24 h-24 mx-auto mb-2 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-primary-100">
+<span class="text-5xl">🐣</span>
+</div>
+<h1 class="text-4xl font-black text-primary-600 tracking-tight">Yummy Nest</h1>
+<div class="flex items-center justify-center gap-2 mt-2">
+<span class="text-primary-300">✨</span>
+<span class="text-lg font-bold uppercase tracking-widest text-primary-500">Kitchen</span>
+<span class="text-primary-300">✨</span>
+</div>
+<p class="text-sm font-semibold text-primary-400 mt-2 bg-primary-50 inline-block px-4 py-1.5 rounded-full">Joy in every bite! 🍬</p>
+</header>
+<!-- Filters & Sticky Menu Header -->
+<div class="sticky-tabs mb-6 shadow-sm">
+<div class="px-4 py-3">
+<div class="bg-primary-500 text-white py-3.5 px-6 rounded-full shadow-lg flex items-center justify-center gap-3">
+<span class="text-xl">🍭</span>
+<h2 class="text-lg font-black tracking-wide uppercase">Today's Menu</h2>
+<span class="text-xl">🍭</span>
+</div>
+</div>
+<div class="px-4 pb-2 space-y-3">
+<div class="relative">
+<span class="absolute inset-y-0 left-4 flex items-center text-primary-300 material-symbols-outlined">search</span>
+<input class="min-touch w-full pl-12 pr-6 py-4 bg-white rounded-full border-2 border-primary-100 focus:border-primary-500 focus:ring-0 focus:outline-none text-sm shadow-sm font-medium placeholder-primary-300" id="menuSearch" oninput="filterMenuItems()" placeholder="Find your craving..." type="text"/>
+</div>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-4 pt-1 snap-x snap-mandatory px-4">
+<button class="filter-btn touch-btn px-6 py-3 text-sm font-bold rounded-full transition-all bg-white text-slate-600 whitespace-nowrap shadow-sm snap-start flex-shrink-0 min-touch" id="filterall" onclick="setDietFilter('all')">🍽️ All</button>
+<button class="filter-btn touch-btn px-6 py-3 text-sm font-bold rounded-full transition-all bg-primary-500 text-white whitespace-nowrap shadow-md snap-start flex-shrink-0 min-touch" id="filternew" onclick="setDietFilter('new')">✨ New</button>
+<button class="filter-btn touch-btn px-6 py-3 text-sm font-bold rounded-full transition-all bg-white text-amber-500 whitespace-nowrap shadow-sm snap-start flex-shrink-0 min-touch" id="filterspecial" onclick="setDietFilter('special')">⭐ Specials</button>
+<button class="filter-btn touch-btn px-6 py-3 text-sm font-bold rounded-full transition-all bg-white text-emerald-600 whitespace-nowrap shadow-sm snap-start flex-shrink-0 min-touch" id="filterveg" onclick="setDietFilter('veg')">🌿 Veg</button>
+<button class="filter-btn touch-btn px-6 py-3 text-sm font-bold rounded-full transition-all bg-white text-rose-600 whitespace-nowrap shadow-sm snap-start flex-shrink-0 min-touch" id="filternonveg" onclick="setDietFilter('nonveg')">🍗 Non-Veg</button>
+<button class="filter-btn touch-btn px-6 py-3 text-sm font-bold rounded-full transition-all bg-white text-purple-500 whitespace-nowrap shadow-sm snap-start flex-shrink-0 min-touch" id="filterbestseller" onclick="setDietFilter('bestseller')">🏆 Best Seller</button>
+<div class="w-4 flex-shrink-0 snap-start"></div>
+</div>
+</div>
+<!-- Smart Time -->
+<div class="px-4 mb-6">
+<div class="bg-white border-2 border-primary-100 rounded-[32px] p-5 shadow-sm flex items-center justify-between" id="smartTimeBanner">
+<span class="flex items-center gap-3 text-sm font-bold text-primary-800">
+<span class="text-2xl text-primary-500 material-symbols-outlined">schedule</span>
+<span id="smartTimeMsg">Checking kitchen...</span>
+</span>
+<span class="font-black uppercase px-4 py-2 rounded-full text-[11px] bg-primary-100 text-primary-600 soft-pulse" id="smartBadge">Fresh</span>
+</div>
+</div>
+<!-- Date & Day Banner -->
+<div class="px-4 mb-6">
+<div class="bg-gradient-to-r from-primary-400 to-primary-600 rounded-[32px] p-5 shadow-lg flex items-center justify-between text-white">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+<span class="text-2xl material-symbols-outlined">event</span>
+</div>
+<div>
+<p class="text-[11px] font-black uppercase tracking-widest text-primary-100" id="currentDay">Loading...</p>
+<p class="text-base font-bold" id="currentDate">Loading...</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[11px] font-black uppercase tracking-wider text-primary-100">Daily Menu</p>
+<p class="text-sm font-bold">Made with ❤️</p>
+</div>
+</div>
+</div>
+<!-- Order Window / Deadline Banner -->
+<div class="px-4 mb-8">
+<div class="bg-white rounded-[32px] p-5 shadow-md relative overflow-hidden border-2 border-primary-100">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-500">
+<span class="text-xl material-symbols-outlined">alarm_on</span>
+</div>
+<h3 class="text-base font-black text-slate-800">Order Deadlines!</h3>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<!-- Breakfast -->
+<div class="bg-orange-50 rounded-2xl p-3 text-center">
+<span class="text-2xl block mb-1">🥞</span>
+<p class="text-[10px] font-black uppercase tracking-wider text-orange-600">Breakfast</p>
+<p class="text-[11px] font-bold text-slate-700 mt-1">By 8:00 AM</p>
+<div class="mt-2 text-[9px] font-bold px-2 py-1 rounded-full bg-slate-100 text-slate-500 uppercase" id="breakfast-status">
+                        ...</div>
+</div>
+<!-- Lunch -->
+<div class="bg-emerald-50 rounded-2xl p-3 text-center">
+<span class="text-2xl block mb-1">🍱</span>
+<p class="text-[10px] font-black uppercase tracking-wider text-emerald-600">Lunch</p>
+<p class="text-[11px] font-bold text-slate-700 mt-1">By 12:00 PM</p>
+<div class="mt-2 text-[9px] font-bold px-2 py-1 rounded-full bg-slate-100 text-slate-500 uppercase" id="lunch-status">
+                        ...</div>
+</div>
+<!-- Dinner -->
+<div class="bg-indigo-50 rounded-2xl p-3 text-center">
+<span class="text-2xl block mb-1">🌙</span>
+<p class="text-[10px] font-black uppercase tracking-wider text-indigo-600">Dinner</p>
+<p class="text-[11px] font-bold text-slate-700 mt-1">By 6:30 PM</p>
+<div class="mt-2 text-[9px] font-bold px-2 py-1 rounded-full bg-slate-100 text-slate-500 uppercase" id="dinner-status">
+                        ...</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Holiday -->
+<div class="px-4 mb-6 hidden" id="holidayBanner">
+<div class="bg-white rounded-[32px] p-8 text-center shadow-lg border-4 border-amber-300">
+<div class="text-6xl mb-4">🏖️</div>
+<h1 class="text-3xl font-black text-slate-800 mb-2">We're on a Break!</h1>
+<p class="text-base font-bold text-slate-500 mb-6" id="holidayTimeText"></p>
+<div class="bg-primary-500 text-white font-bold text-sm py-3 px-8 rounded-full inline-block">See you soon! 💖</div>
+</div>
+</div>
+<!-- Main -->
+<main class="px-4 space-y-8" id="menuContainer">
+<section class="menu-section" id="breakfastBlock">
+<div class="flex items-center gap-4 mb-5">
+<div class="bg-orange-100 text-orange-500 w-12 h-12 rounded-full flex justify-center items-center text-2xl shadow-sm">
+🥞
+</div>
+<div>
+<h3 class="text-2xl font-black text-slate-800">Breakfast</h3>
+<p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">7:30 AM - 10:30 AM</p>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-2 pb-4" id="breakfast-gallery-scroll">
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+</div>
+</section>
+<section class="menu-section" id="lunchBlock">
+<div class="flex items-center gap-4 mb-5">
+<div class="bg-emerald-100 text-emerald-500 w-12 h-12 rounded-full flex justify-center items-center text-2xl shadow-sm">
+🍱
+</div>
+<div>
+<h3 class="text-2xl font-black text-slate-800">Lunch</h3>
+<p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">11:30 AM - 3:30 PM</p>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-2 pb-4" id="lunch-gallery-scroll">
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+</div>
+</section>
+<section class="menu-section" id="dinnerBlock">
+<div class="flex items-center gap-4 mb-5">
+<div class="bg-indigo-100 text-indigo-500 w-12 h-12 rounded-full flex justify-center items-center text-2xl shadow-sm">
+🌙
+</div>
+<div>
+<h3 class="text-2xl font-black text-slate-800">Dinner</h3>
+<p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">7:00 PM - 10:30 PM</p>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar mb-2 pb-4" id="dinner-gallery-scroll">
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+<div class="shimmer h-48 w-40 flex-shrink-0 rounded-[24px] snap-start"></div>
+</div>
+</section>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white rounded-[32px] p-5 text-center shadow-sm border border-primary-50 flex flex-col justify-center items-center">
+<div class="w-12 h-12 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center text-2xl mb-2">
+🛍️
+</div>
+<p class="text-[11px] font-black text-slate-500 uppercase tracking-wider">Packing</p>
+<p class="text-xl font-black text-slate-800 mt-1">₹10</p>
+<p class="text-[10px] font-bold text-slate-400 mt-1">Dinner only</p>
+</div>
+<div class="bg-white rounded-[32px] p-5 text-center hidden shadow-sm border border-primary-50 flex flex-col justify-center items-center" id="deliveryChargeBlock">
+<div class="w-12 h-12 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center text-2xl mb-2">
+🛵
+</div>
+<p class="text-[11px] font-black text-slate-500 uppercase tracking-wider">Delivery</p>
+<p class="text-xl font-black text-slate-800 mt-1">₹<span id="dynamic-delivery-charge">0</span></p>
+<p class="text-[10px] font-bold text-slate-400 mt-1">To your door</p>
+</div>
+</div>
+<div class="bg-primary-950 text-white rounded-[32px] p-8 shadow-xl relative overflow-hidden" id="contact">
+<div class="absolute -right-4 -bottom-4 text-[120px] opacity-10">💬</div>
+<h4 class="text-2xl font-black mb-6 relative z-10">Say Hello! 👋</h4>
+<div class="space-y-4 text-sm font-medium relative z-10">
+<div class="flex items-center gap-3"><span class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">📍</span><span>Flat B, Yummy Nest Arcade, Coimbatore</span></div>
+<div class="flex items-center gap-3"><span class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">📞</span><span class="font-black text-base">+91 97893 27773</span></div>
+<div class="flex items-center gap-3"><span class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">⏰</span><span>Daily: 11:30 AM - 10:30 PM</span></div>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-8 relative z-10">
+<a class="touch-btn bg-amber-400 text-amber-950 text-center font-black py-4 rounded-full text-sm shadow-lg press-effect" href="tel:+919789327773" onclick="logEvent(analytics, 'generate_lead', { method: 'phone_call' });">Call Us</a>
+<a class="touch-btn bg-emerald-500 text-white text-center font-black py-4 rounded-full text-sm shadow-lg press-effect" href="https://wa.me/919789327773?text=Hi%20Yummy%20Nest!%20%F0%9F%8D%BD%EF%B8%8F%0A%0AI%20would%20like%20to%20order%3A%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%0A%F0%9F%93%8D%20My%20Location%3A%20%0A%F0%9F%93%9E%20My%20Number%3A%20%0A%0APlease%20confirm%20availability%20and%20total%20amount%20with%20delivery%20charge.%20Thank%20you!%20%F0%9F%99%8F" onclick="logEvent(analytics, 'generate_lead', { method: 'whatsapp' });" target="_blank">WhatsApp</a>
+</div>
+</div>
+<div class="bg-white rounded-[32px] p-6 shadow-sm border border-primary-50" id="poll-board-container">
+<h4 class="text-xl font-black text-slate-800 mb-1">💖 Fan Favorites</h4>
+<p class="text-[11px] font-bold text-slate-400 mb-4">Tap to vote! Your likes shape our menu.</p>
+<div class="grid grid-cols-1 gap-3" id="poll-board">
+<div class="shimmer h-16 rounded-2xl"></div>
+<div class="shimmer h-16 rounded-2xl"></div>
+<div class="shimmer h-16 rounded-2xl"></div>
+</div>
+</div>
+<button class="touch-btn w-full bg-primary-500 text-white font-black py-4 rounded-full shadow-lg shadow-primary-500/30 flex items-center justify-center gap-2 text-base press-effect" onclick="shareEntireMenu()">
+<span class="material-symbols-outlined">share</span> Share Menu With Friends
         </button>
-
-        <div class="text-center pb-4">
-            <p class="text-[10px] text-neutral-400 italic">Likes are saved permanently across all days</p>
-        </div>
-    </main>
-
-    <!-- Modal -->
-    <div id="spotlightModal" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeSpotlight()"></div>
-        <div id="spotlightSheet"
-            class="absolute bottom-0 left-0 right-0 bg-[#fdfaf2] rounded-t-3xl max-h-[90vh] overflow-y-auto modal-enter">
-            <div class="sticky top-0 bg-[#fdfaf2] pt-3 pb-2 px-4 z-10 flex justify-center" onclick="closeSpotlight()">
-                <div class="w-10 h-1 bg-neutral-300 rounded-full"></div>
-            </div>
-            <div id="spotlightBody" class="px-4 pb-8 pt-2 space-y-4"></div>
-        </div>
-    </div>
-
-    <!-- WhatsApp FAB -->
-    <a href="https://wa.me/919789327773?text=Hi%20Yummy%20Nest!%20%F0%9F%8D%BD%EF%B8%8F%0A%0AI%20would%20like%20to%20order%3A%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%0A%F0%9F%93%8D%20My%20Location%3A%20%0A%F0%9F%93%9E%20My%20Number%3A%20%0A%0APlease%20confirm%20availability%20and%20total%20amount%20with%20delivery%20charge.%20Thank%20you!%20%F0%9F%99%8F"
-        target="_blank" onclick="logEvent(analytics, 'generate_lead', { method: 'whatsapp_fab' });"
-        class="fixed bottom-6 right-4 bg-green-500 text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center z-40 touch-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-            <path
-                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
-        </svg>
-    </a>
-
-    <script type="module">
+<div class="text-center pb-8">
+<p class="text-[11px] font-bold text-slate-400">Made with extra joy! ✨</p>
+</div>
+</main>
+<!-- Modal as Bottom Sheet -->
+<div class="fixed inset-0 z-50 hidden" id="spotlightModal">
+<div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onclick="closeSpotlight()"></div>
+<div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[40px] max-h-[92vh] overflow-y-auto modal-enter pb-safe shadow-2xl" id="spotlightSheet">
+<div class="sticky top-0 bg-white/90 backdrop-blur pt-4 pb-2 px-4 z-10 flex justify-center cursor-pointer" onclick="closeSpotlight()">
+<div class="w-12 h-1.5 bg-slate-200 rounded-full"></div>
+</div>
+<div class="px-6 pb-8 pt-2 space-y-6" id="spotlightBody"></div>
+</div>
+</div>
+<!-- WhatsApp FAB safely above Bottom Nav -->
+<a class="fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center z-40 touch-btn press-effect soft-pulse" href="https://wa.me/919789327773?text=Hi%20Yummy%20Nest!%20%F0%9F%8D%BD%EF%B8%8F%0A%0AI%20would%20like%20to%20order%3A%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%E2%80%A2%20%0A%0A%F0%9F%93%8D%20My%20Location%3A%20%0A%F0%9F%93%9E%20My%20Number%3A%20%0A%0APlease%20confirm%20availability%20and%20total%20amount%20with%20delivery%20charge.%20Thank%20you!%20%F0%9F%99%8F" onclick="logEvent(analytics, 'generate_lead', { method: 'whatsapp_fab' });" target="_blank">
+<svg fill="currentColor" height="32" viewbox="0 0 16 16" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+</svg>
+</a>
+<!-- Glassmorphism Bottom Nav (from COMPONENTS_3) -->
+<nav class="fixed bottom-0 w-full z-40 bg-white/90 backdrop-blur-xl border-t border-slate-100 pb-[env(safe-area-inset-bottom)] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+<div class="flex justify-around items-center h-[4.5rem] px-4 w-full">
+<a class="flex flex-col items-center justify-center text-primary-500 relative min-touch press-effect" href="#home">
+<span class="text-2xl material-symbols-outlined filled">home</span>
+<span class="text-[10px] font-black mt-1">Home</span>
+<span class="absolute -top-1 w-1.5 h-1.5 bg-primary-500 rounded-full"></span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary-500 min-touch press-effect" href="#menuContainer">
+<span class="text-2xl material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-bold mt-1">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary-500 min-touch press-effect" href="#poll-board-container">
+<span class="text-2xl material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-bold mt-1">Favs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 hover:text-primary-500 min-touch press-effect" href="#contact">
+<span class="text-2xl material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-bold mt-1">Chat</span>
+</a>
+</div>
+</nav>
+<script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
         import { getFirestore, collection, getDocs, doc, getDoc, runTransaction, query, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -679,7 +562,6 @@
         const db = getFirestore(app);
         const auth = getAuth(app);
 
-        // Safely Initialize Analytics
         let analytics = null;
         try {
             analytics = getAnalytics(app);
@@ -687,7 +569,6 @@
             console.warn("Firebase Analytics failed to initialize. Disabling tracking safely:", e);
         }
 
-        // Global safe helper to avoid crashing on UI click handlers
         window.analytics = analytics;
         window.logEvent = function (analyticsInstance, name, params) {
             if (analyticsInstance) {
@@ -711,7 +592,7 @@
 
         const MEAL_TIMES = {
             breakfast: { start: 7, end: 11, label: 'Breakfast', icon: '🥞', hours: '7:30 AM - 10:30 AM' },
-            lunch: { start: 11, end: 16, label: 'Lunch', icon: '🍛', hours: '11:30 AM - 3:30 PM' },
+            lunch: { start: 11, end: 16, label: 'Lunch', icon: '🍱', hours: '11:30 AM - 3:30 PM' },
             dinner: { start: 19, end: 23, label: 'Dinner', icon: '🌙', hours: '7:00 PM - 10:30 PM' }
         };
 
@@ -735,19 +616,16 @@
                 if (!el) return;
                 if (currentDecimalHour < deadlineHour) {
                     el.innerText = openLabel;
-                    el.className = "mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 uppercase transition-all";
+                    el.className = "mt-2 text-[9px] font-bold px-2 py-1 rounded-full bg-emerald-100 text-emerald-600 uppercase transition-all inline-block";
                 } else {
                     el.innerText = closedLabel;
-                    el.className = "mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700 uppercase transition-all";
+                    el.className = "mt-2 text-[9px] font-bold px-2 py-1 rounded-full bg-rose-100 text-rose-600 uppercase transition-all inline-block";
                 }
             };
 
-            // Before 8:00 AM
-            updateStatus('breakfast-status', 8, 'Accepting Orders', 'Orders Closed');
-            // Before 12:00 PM
-            updateStatus('lunch-status', 12, 'Accepting Orders', 'Orders Closed');
-            // Before 6:30 PM
-            updateStatus('dinner-status', 18.5, 'Accepting Orders', 'Orders Closed');
+            updateStatus('breakfast-status', 8, 'Accepting', 'Closed');
+            updateStatus('lunch-status', 12, 'Accepting', 'Closed');
+            updateStatus('dinner-status', 18.5, 'Accepting', 'Closed');
         }
 
         function showToast(msg, icon = '❤️') {
@@ -765,10 +643,10 @@
         }
 
         function getMealIcon(mt) { return MEAL_TIMES[mt]?.icon || '🍽️'; }
-        function getMealFallbackText(mt) { return mt === 'breakfast' ? 'Freshly prepared breakfast.' : mt === 'lunch' ? 'Freshly prepared with love.' : 'House special'; }
-        function getCategoryBadge(cat) { return cat === 'nonveg' ? '<span class="inline-block mt-1 text-[8px] bg-rose-50 text-rose-700 px-1.5 py-0.5 rounded font-extrabold uppercase border border-rose-100">🍗 Non Veg</span>' : '<span class="inline-block mt-1 text-[8px] bg-emerald-50 text-emerald-700 px-1.5 py-0.5 rounded font-extrabold uppercase border border-emerald-100">🌿 Pure Veg</span>'; }
-        function getCardPlaceholderHTML(name) { return '<div class="absolute inset-0 bg-[#e5dcc3] flex flex-col items-center justify-center p-3 text-center select-none"><span class="text-xl mb-1 filter drop-shadow">🍛</span><span class="text-[11px] font-bold text-[#2c221e] uppercase tracking-wider leading-snug line-clamp-2 max-w-[90%] font-sans">' + name + '</span></div>'; }
-        function getSpotlightPlaceholderHTML(name) { return '<div class="absolute inset-0 bg-[#e5dcc3]/90 flex flex-col items-center justify-center p-6 text-center select-none"><span class="text-3xl mb-2 filter drop-shadow">🥘</span><span class="text-lg font-black text-[#1e4620] uppercase tracking-widest font-vintage max-w-[90%]">' + name + '</span><p class="text-[10px] text-[#876e43] font-bold tracking-widest mt-1">🌿 YUMMY NEST ORIGINAL</p></div>'; }
+        function getMealFallbackText(mt) { return mt === 'breakfast' ? 'Yummy start to the day!' : mt === 'lunch' ? 'Perfect midday boost!' : 'Cozy evening treat!'; }
+        function getCategoryBadge(cat) { return cat === 'nonveg' ? '<span class="inline-block mt-2 text-[9px] bg-rose-50 text-rose-600 px-2 py-1 rounded-full font-black uppercase">🍗 Non Veg</span>' : '<span class="inline-block mt-2 text-[9px] bg-emerald-50 text-emerald-600 px-2 py-1 rounded-full font-black uppercase">🌿 Pure Veg</span>'; }
+        function getCardPlaceholderHTML(name) { return '<div class="absolute inset-0 bg-primary-100 flex flex-col items-center justify-center p-3 text-center select-none"><span class="text-3xl mb-2 filter drop-shadow-sm">✨</span><span class="text-[12px] font-black text-primary-800 leading-snug line-clamp-2 max-w-[90%]">' + name + '</span></div>'; }
+        function getSpotlightPlaceholderHTML(name) { return '<div class="absolute inset-0 bg-primary-100 flex flex-col items-center justify-center p-6 text-center select-none"><span class="text-5xl mb-4">✨</span><span class="text-2xl font-black text-primary-800 leading-tight max-w-[90%]">' + name + '</span></div>'; }
 
         function getCurrentMealStatus() {
             const hour = new Date().getHours();
@@ -797,38 +675,38 @@
             let title, message, icon, bgColor, borderColor, textColor;
 
             if (isCurrentlyServing) {
-                title = meal.icon + ' ' + meal.label + ' Not Available Today';
-                message = 'We are not serving ' + meal.label.toLowerCase() + ' today. Check back tomorrow or browse other meal times!';
-                icon = '😔';
-                bgColor = 'bg-amber-50';
-                borderColor = 'border-amber-200';
-                textColor = 'text-amber-800';
+                title = meal.icon + ' ' + meal.label + ' All Gone!';
+                message = 'We are sold out of ' + meal.label.toLowerCase() + ' today. Check back tomorrow!';
+                icon = '🥺';
+                bgColor = 'bg-orange-50';
+                borderColor = 'border-orange-200';
+                textColor = 'text-orange-600';
             } else if (status.currentMeal && status.currentMeal !== mealType) {
                 const current = MEAL_TIMES[status.currentMeal];
-                title = '⏰ ' + meal.label + ' is Closed';
-                message = 'We are currently serving ' + current.label + ' (' + current.hours + '). Come back during ' + meal.hours + '!';
+                title = '⏰ ' + meal.label + ' Closed';
+                message = 'Serving ' + current.label + ' right now! Come back during ' + meal.hours + '.';
                 icon = '⏳';
-                bgColor = 'bg-neutral-50';
-                borderColor = 'border-neutral-200';
-                textColor = 'text-neutral-600';
+                bgColor = 'bg-slate-50';
+                borderColor = 'border-slate-200';
+                textColor = 'text-slate-600';
             } else if (!status.currentMeal && status.nextMeal === mealType) {
                 const hoursUntil = status.hoursUntilNext;
-                title = '🔔 ' + meal.label + ' Coming Soon';
-                message = hoursUntil <= 1 ? meal.label + ' starts in less than an hour! Get ready to order.' : meal.label + ' starts in about ' + hoursUntil + ' hours. Stay tuned!';
+                title = '🔔 ' + meal.label + ' Soon!';
+                message = hoursUntil <= 1 ? 'Getting ready! Starts in less than an hour.' : 'Starts in about ' + hoursUntil + ' hours. Get excited!';
                 icon = '🔔';
                 bgColor = 'bg-emerald-50';
                 borderColor = 'border-emerald-200';
-                textColor = 'text-emerald-800';
+                textColor = 'text-emerald-700';
             } else {
                 title = '🔒 ' + meal.label + ' Closed';
-                message = meal.label + ' is served ' + meal.hours + '. Please visit during those hours.';
+                message = 'Served ' + meal.hours + '.';
                 icon = '🔒';
-                bgColor = 'bg-neutral-50';
-                borderColor = 'border-neutral-200';
-                textColor = 'text-neutral-500';
+                bgColor = 'bg-slate-50';
+                borderColor = 'border-slate-200';
+                textColor = 'text-slate-500';
             }
 
-            return '<div class="empty-state ' + bgColor + ' border-2 ' + borderColor + ' rounded-2xl p-5 text-center w-full flex-shrink-0 snap-start"><div class="text-3xl mb-2">' + icon + '</div><p class="text-sm font-bold ' + textColor + ' mb-1">' + title + '</p><p class="text-[11px] text-neutral-500 leading-relaxed">' + message + '</p>' + (isCurrentlyServing ? '<div class="mt-3 flex items-center justify-center gap-1 text-[10px] text-amber-600 font-semibold"><span>📞</span><span>Call +91 97893 27773 for special requests</span></div>' : '') + '</div>';
+            return '<div class="empty-state ' + bgColor + ' border-2 ' + borderColor + ' rounded-[24px] p-6 text-center w-full flex-shrink-0 snap-start"><div class="text-4xl mb-3">' + icon + '</div><p class="text-base font-black ' + textColor + ' mb-2">' + title + '</p><p class="text-sm font-bold text-slate-500 leading-relaxed">' + message + '</p></div>';
         }
 
         function findItemById(itemId) {
@@ -855,13 +733,13 @@
                 console.log("Firestore updated:", itemId, "liked:", isLiked);
             } catch (error) {
                 console.error("Firestore failed:", error);
-                showToast("Failed to save. Try again.", "⚠️");
+                showToast("Oops, couldn't save that. Try again!", "🥺");
             }
         }
 
         window.toggleLike = function (itemId) {
             console.log("toggleLike:", itemId);
-            if (event) event.stopPropagation();
+            if (window.event) window.event.stopPropagation();
 
             const result = findItemById(itemId);
             if (!result) { console.warn("Item not found:", itemId); return; }
@@ -875,11 +753,11 @@
             if (state.userLiked[itemId]) {
                 item.likes = Math.max(0, currentLikes - 1);
                 state.userLiked[itemId] = false;
-                showToast("Removed like", "💔");
+                showToast("Unliked", "💔");
             } else {
                 item.likes = currentLikes + 1;
                 state.userLiked[itemId] = true;
-                showToast("Liked!", "❤️");
+                showToast("Loved it!", "💖");
             }
 
             updateAllLikeUIs(itemId);
@@ -893,10 +771,10 @@
             const item = result.item;
             const likesVal = item.likes || item.Like || 0;
             const isLiked = state.userLiked[itemId] || false;
-            const heartIcon = isLiked ? '❤️' : '🤍';
+            const heartIcon = isLiked ? '💖' : '🤍';
 
             const cardBtns = document.querySelectorAll('[data-card-like="' + itemId + '"]');
-            cardBtns.forEach(btn => { btn.innerHTML = isLiked ? '❤️' : '🤍'; btn.classList.toggle('liked', isLiked); });
+            cardBtns.forEach(btn => { btn.innerHTML = isLiked ? '💖' : '🤍'; btn.classList.toggle('liked', isLiked); });
 
             const cardCounts = document.querySelectorAll('[data-card-count="' + itemId + '"]');
             cardCounts.forEach(cnt => { cnt.innerText = likesVal; cnt.classList.add('like-count-pop'); setTimeout(() => cnt.classList.remove('like-count-pop'), 300); });
@@ -910,49 +788,69 @@
             }
 
             if (pollBtn) {
-                pollBtn.className = isLiked ? 'touch-btn p-3 rounded-xl border text-left transition-all bg-rose-50 border-rose-200' : 'touch-btn p-3 rounded-xl border text-left transition-all bg-neutral-50 border-neutral-200';
+                pollBtn.className = isLiked ? 'touch-btn p-4 rounded-[24px] text-left transition-all bg-primary-50 border-2 border-primary-200 press-effect' : 'touch-btn p-4 rounded-[24px] text-left transition-all bg-white border-2 border-slate-100 press-effect';
             }
 
             const spotlightLikes = document.getElementById('spotlight-likes-count');
             const spotlightBtn = document.getElementById('spotlight-like-btn');
 
-            if (spotlightLikes) spotlightLikes.innerText = likesVal + ' people love this';
+            if (spotlightLikes) spotlightLikes.innerText = likesVal + ' fans love this';
             if (spotlightBtn) {
-                if (isLiked) { spotlightBtn.classList.add('like-btn-active'); spotlightBtn.innerHTML = '❤️ Liked'; }
-                else { spotlightBtn.classList.remove('like-btn-active'); spotlightBtn.innerHTML = '🤍 Like'; }
+                if (isLiked) { spotlightBtn.classList.add('like-btn-active'); spotlightBtn.innerHTML = '💖 Loved'; }
+                else { spotlightBtn.classList.remove('like-btn-active'); spotlightBtn.innerHTML = '🤍 Love This'; }
             }
         }
 
-        let currentFilter = 'all';
+        let currentFilter = 'new';
         let searchQuery = '';
 
         window.setDietFilter = function (filter) {
             currentFilter = filter;
-            // Update active state of buttons
-            const buttons = ['all', 'veg', 'nonveg', 'special', 'bestseller', 'new'];
+            const buttons = ['all', 'new', 'special', 'veg', 'nonveg', 'bestseller'];
             buttons.forEach(b => {
                 const btn = document.getElementById('filter' + b);
                 if (btn) {
                     if (filter === b) {
-                        btn.classList.add('bg-[#1e4620]', 'text-white');
-                        btn.classList.remove('bg-white', 'text-emerald-800', 'text-rose-800', 'text-amber-800', 'text-purple-800', 'text-rose-600', 'border');
+                        btn.classList.add('bg-primary-500', 'text-white', 'shadow-md');
+                        btn.classList.remove('bg-white', 'text-emerald-600', 'text-rose-600', 'text-amber-500', 'text-purple-500', 'text-primary-500', 'shadow-sm');
                     } else {
-                        btn.classList.remove('bg-[#1e4620]', 'text-white');
-                        btn.classList.add('bg-white', 'border');
-                        if (b === 'veg') btn.classList.add('text-emerald-800', 'border-emerald-200');
-                        else if (b === 'nonveg') btn.classList.add('text-rose-800', 'border-rose-200');
-                        else if (b === 'special') btn.classList.add('text-amber-800', 'border-amber-200');
-                        else if (b === 'bestseller') btn.classList.add('text-purple-800', 'border-purple-200');
-                        else if (b === 'new') btn.classList.add('text-rose-600', 'border-rose-200');
-                        else btn.classList.add('text-neutral-800', 'border-neutral-200');
+                        btn.classList.remove('bg-primary-500', 'text-white', 'shadow-md');
+                        btn.classList.add('bg-white', 'shadow-sm');
+                        if (b === 'veg') btn.classList.add('text-emerald-600');
+                        else if (b === 'nonveg') btn.classList.add('text-rose-600');
+                        else if (b === 'special') btn.classList.add('text-amber-500');
+                        else if (b === 'bestseller') btn.classList.add('text-purple-500');
+                        else if (b === 'new') btn.classList.add('text-primary-500');
+                        else btn.classList.add('text-slate-600');
                     }
                 }
             });
+            
+            // FIX 1: Re-render the HTML DOM elements *first* to apply the updated badges
+            renderHorizontalItems(state.masterMenuData.breakfast, 'breakfast', 'breakfast-gallery-scroll', filter);
+            renderHorizontalItems(state.masterMenuData.lunch, 'lunch', 'lunch-gallery-scroll', filter);
+            renderHorizontalItems(state.masterMenuData.dinner, 'dinner', 'dinner-gallery-scroll', filter);
+            
+            // FIX 1: *Then* apply the display filter logic to the newly rendered elements
             applyFilters();
+            
+            // Re-bind image fallbacks for newly rendered cards
+            setTimeout(() => {
+                document.querySelectorAll('.menu-img').forEach(img => {
+                    img.onerror = function () {
+                        const fallbackName = this.getAttribute('data-fallback') || 'Yummy Dish';
+                        this.outerHTML = getCardPlaceholderHTML(fallbackName);
+                    };
+                });
+            }, 100);
         };
 
         window.filterMenuItems = function () {
             searchQuery = document.getElementById('menuSearch').value.toLowerCase();
+            
+            // FIX 2: Just apply the display filters when the search input changes.
+            // Removing `renderHorizontalItems` from here fixes a ReferenceError crash 
+            // since `filter` was an undefined variable in this block.
             applyFilters();
         };
 
@@ -975,7 +873,7 @@
                 const searchMatch = name.includes(searchQuery);
 
                 if (dietMatch && searchMatch) {
-                    card.style.display = 'block';
+                    card.style.display = ''; // Clear inline block setting, fallback to tailwind natural flow
                 } else {
                     card.style.display = 'none';
                 }
@@ -994,9 +892,9 @@
 
             window.logEvent(analytics, 'select_item', { item_name: item.name, item_id: itemId, item_category: mealType, price: item.price });
 
-            let mealTypeName = 'Breakfast (7:30 AM - 10:30 AM)';
-            if (mealType === 'lunch') mealTypeName = 'Lunch (11:30 AM - 3:30 PM)';
-            else if (mealType === 'dinner') mealTypeName = 'Dinner (7:00 PM - 10:30 PM)';
+            let mealTypeName = 'Breakfast (7:30 - 10:30 AM)';
+            if (mealType === 'lunch') mealTypeName = 'Lunch (11:30 - 3:30 PM)';
+            else if (mealType === 'dinner') mealTypeName = 'Dinner (7:00 - 10:30 PM)';
 
             const likesVal = item.likes || item.Like || 0;
             const isLiked = state.userLiked[itemId] || false;
@@ -1007,11 +905,11 @@
                 price: '₹' + item.price.toString(),
                 type: mealTypeName,
                 category: category,
-                prepTime: item.prepTime || '5 mins',
-                ingredients: item['Detailed Ingredients'] || item.ingredients || 'Fresh ingredients sourced daily.',
-                allergens: item['Allergens'] || item.allergens || 'No known allergens. Please inform staff of any dietary restrictions.',
-                nutrition: item['Nutrition Facts'] || item.nutrition || 'Nutritional information available upon request.',
-                description: item.description || item.Description || 'A delicious house specialty prepared with love.',
+                prepTime: item.prepTime || '5m',
+                ingredients: item['Detailed Ingredients'] || item.ingredients || 'Fresh stuff made with joy!',
+                allergens: item['Allergens'] || item.allergens || 'None known, but ask if unsure!',
+                nutrition: item['Nutrition Facts'] || item.nutrition || 'Good for the soul! ✨',
+                description: item.description || item.Description || 'A super yummy favorite!',
                 image: item.image || '',
                 likes: likesVal,
                 isLiked: isLiked
@@ -1024,18 +922,18 @@
             const hasImage = dish.image && dish.image.trim() !== "" && !dish.image.includes('placeholder') && !dish.image.includes('placehold.co');
             const spotlightImageContent = hasImage ? '<img src="' + dish.image + '" alt="' + dish.name.replace(/"/g, '&quot;') + '" class="w-full h-full object-cover spotlight-img" data-fallback="' + dish.name.replace(/'/g, "\\\'") + '">' : getSpotlightPlaceholderHTML(dish.name);
 
-            const categoryBadge = dish.category === 'nonveg' ? '<span class="text-[10px] bg-rose-50 text-rose-800 font-extrabold uppercase tracking-wider px-2 py-0.5 rounded border border-rose-200 mt-1 inline-block">🍗 Non Veg</span>' : '<span class="text-[10px] bg-emerald-50 text-emerald-800 font-extrabold uppercase tracking-wider px-2 py-0.5 rounded border border-emerald-200 mt-1 inline-block">🌿 Pure Veg</span>';
+            const categoryBadge = dish.category === 'nonveg' ? '<span class="text-[10px] bg-rose-50 text-rose-600 font-black uppercase tracking-wider px-3 py-1 rounded-full mt-2 inline-block">🍗 Non Veg</span>' : '<span class="text-[10px] bg-emerald-50 text-emerald-600 font-black uppercase tracking-wider px-3 py-1 rounded-full mt-2 inline-block">🌿 Pure Veg</span>';
 
-            const likeBtnClass = dish.isLiked ? 'like-btn-active' : 'bg-white border-neutral-200 text-neutral-700';
-            const likeBtnText = dish.isLiked ? '❤️ Liked' : '🤍 Like';
+            const likeBtnClass = dish.isLiked ? 'like-btn-active' : 'bg-primary-50 border-primary-200 text-primary-600';
+            const likeBtnText = dish.isLiked ? '💖 Loved' : '🤍 Love This';
 
-            body.innerHTML = '<div class="rounded-2xl overflow-hidden h-52 w-full border-2 border-[#e5dcc3] relative shadow-sm bg-[#e5dcc3]">' + spotlightImageContent + '<div class="absolute top-3 left-3 bg-[#1e4620] text-white font-bold text-[10px] px-2.5 py-1 rounded z-10">' + dish.type + '</div><button onclick="closeSpotlight()" class="absolute top-3 right-3 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-sm font-bold shadow z-10">✕</button></div>' +
-                '<div class="flex justify-between items-start mt-1"><div class="flex-1 min-w-0"><h4 class="text-xl font-black font-vintage text-[#1e4620]">' + dish.name + '</h4>' + categoryBadge + '</div><div class="text-right flex-shrink-0 ml-3"><span class="text-2xl font-black text-[#ba2323] block">' + dish.price + '</span><span class="text-[10px] text-neutral-400 font-semibold">~' + dish.prepTime + '</span></div></div>' +
-                '<button id="spotlight-like-btn" onclick="toggleLike(\'' + itemId + '\')" class="touch-btn w-full py-4 rounded-2xl border-2 font-bold text-base flex items-center justify-center gap-2 transition-all press-effect ' + likeBtnClass + '" style="min-height:56px;">' + likeBtnText + '</button>' +
-                '<div class="flex items-center gap-2 bg-neutral-50 p-3 rounded-xl"><span class="text-lg">❤️</span><span id="spotlight-likes-count" class="text-sm font-bold text-neutral-700">' + dish.likes + ' people love this</span></div>' +
-                '<p class="text-xs text-neutral-600 leading-relaxed italic bg-white p-3 rounded-xl border border-neutral-100">"' + dish.description + '"</p>' +
-                '<div class="space-y-3"><div class="bg-white p-3 rounded-xl border border-neutral-100"><strong class="text-xs text-[#1e4620] block mb-1">📋 Detailed Ingredients</strong><p class="text-neutral-500 text-[11px] leading-relaxed">' + dish.ingredients + '</p></div><div class="grid grid-cols-2 gap-2"><div class="bg-amber-50 p-3 rounded-xl border border-amber-100"><strong class="text-[10px] text-amber-800 block mb-1">📍 Allergens</strong><p class="text-neutral-500 text-[10px] leading-relaxed">' + dish.allergens + '</p></div><div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100"><strong class="text-[10px] text-emerald-800 block mb-1">🌱 Nutrition Facts</strong><p class="text-neutral-500 text-[10px] leading-relaxed">' + dish.nutrition + '</p></div></div></div>' +
-                '<div class="grid grid-cols-2 gap-3 pt-2"><button onclick="shareSpotlightDish()" class="touch-btn py-3 bg-[#1e4620] text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">📲 Share</button><a href="tel:+919789327773" onclick="window.logEvent(analytics, \'generate_lead\', { method: \'phone_call_spotlight\' });" class="touch-btn py-3 bg-yellow-500 text-[#2c221e] font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow">📞 Order Call</a></div>';
+            body.innerHTML = '<div class="rounded-[32px] overflow-hidden h-64 w-full relative shadow-sm bg-primary-100">' + spotlightImageContent + '<div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-slate-800 font-bold text-[11px] px-4 py-2 rounded-full z-10 shadow-sm">' + dish.type + '</div><button onclick="closeSpotlight()" class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-xl font-bold shadow-sm z-10 material-symbols-outlined min-touch press-effect">close</button></div>' +
+                '<div class="flex justify-between items-start mt-2"><div class="flex-1 min-w-0"><h4 class="text-3xl font-black text-slate-800 leading-tight">' + dish.name + '</h4>' + categoryBadge + '</div><div class="text-right flex-shrink-0 ml-4"><span class="text-3xl font-black text-primary-500 block">' + dish.price + '</span><span class="text-[11px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full inline-block mt-1">⏱️ ' + dish.prepTime + '</span></div></div>' +
+                '<button id="spotlight-like-btn" onclick="toggleLike(\'' + itemId + '\')" class="touch-btn w-full py-4 rounded-full border-2 font-black text-lg flex items-center justify-center gap-2 transition-all press-effect min-touch ' + likeBtnClass + '" style="min-height:56px;">' + likeBtnText + '</button>' +
+                '<div class="flex items-center gap-3 bg-primary-50 p-4 rounded-full border border-primary-100"><span class="text-xl">✨</span><span id="spotlight-likes-count" class="text-sm font-bold text-primary-700">' + dish.likes + ' fans love this</span></div>' +
+                '<p class="text-sm text-slate-600 font-bold leading-relaxed bg-white p-5 rounded-[24px] border border-slate-100 shadow-sm text-center">"' + dish.description + '"</p>' +
+                '<div class="space-y-3"><div class="bg-slate-50 p-5 rounded-[24px]"><strong class="text-sm text-slate-800 font-black block mb-2 flex items-center gap-2"><span>🥣</span> Detailed Ingredients</strong><p class="text-slate-600 text-sm font-medium leading-relaxed">' + dish.ingredients + '</p></div><div class="grid grid-cols-2 gap-3"><div class="bg-orange-50 p-4 rounded-[24px]"><strong class="text-[11px] text-orange-800 font-black block mb-1">⚠️ Allergens</strong><p class="text-orange-600 text-[11px] font-bold leading-relaxed">' + dish.allergens + '</p></div><div class="bg-emerald-50 p-4 rounded-[24px]"><strong class="text-[11px] text-emerald-800 font-black block mb-1">💪 Nutrient Facts</strong><p class="text-emerald-600 text-[11px] font-bold leading-relaxed">' + dish.nutrition + '</p></div></div></div>' +
+                '<div class="grid grid-cols-2 gap-3 pt-4"><button onclick="shareSpotlightDish()" class="touch-btn py-4 bg-slate-100 text-slate-700 font-black rounded-full text-sm flex items-center justify-center gap-2 press-effect min-touch"><span class="material-symbols-outlined text-lg">share</span> Share</button><a href="tel:+919789327773" onclick="window.logEvent(analytics, \'generate_lead\', { method: \'phone_call_spotlight\' });" class="touch-btn py-4 bg-primary-500 text-white font-black rounded-full text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary-500/30 press-effect min-touch"><span class="material-symbols-outlined text-lg">call</span> Order Call</a></div>';
 
             modal.classList.remove("hidden");
             sheet.classList.remove("modal-exit", "modal-exit-active");
@@ -1053,19 +951,19 @@
                 sheet.classList.remove("modal-exit-active");
                 state.activeSpotlightKey = null;
                 document.body.style.overflow = "";
-            }, 250);
+            }, 300);
         };
 
         window.shareEntireMenu = function () {
             if (navigator.share) {
                 navigator.share({
                     title: 'Yummy Nest Kitchen',
-                    text: 'Check out today\'s delicious menu at Yummy Nest Kitchen!',
+                    text: 'Check out today\'s yummy menu! 🍬',
                     url: window.location.href,
                 }).catch(console.error);
             } else {
                 navigator.clipboard.writeText(window.location.href).then(() => {
-                    showToast("Link copied to clipboard!", "🔗");
+                    showToast("Link copied! Share the joy. ✨", "🔗");
                 });
             }
         };
@@ -1076,11 +974,11 @@
             if (!result) return;
             const item = result.item;
             window.logEvent(analytics, 'share', { method: 'whatsapp', content_type: 'dish', item_name: item.name, item_id: state.activeSpotlightKey });
-            const text = '🍽️ *Yummy Nest Kitchen*\n\n🥘 *' + item.name + '* - ₹' + item.price + '\n🍃 ' + item.mealType.charAt(0).toUpperCase() + item.mealType.slice(1) + '\n❤️ ' + (item.likes || 0) + ' people love this\n\nCheck out the full menu!';
+            const text = '🐣 *Yummy Nest Kitchen*\n\n✨ *' + item.name + '* - ₹' + item.price + '\n🕒 ' + item.mealType.charAt(0).toUpperCase() + item.mealType.slice(1) + '\n💖 ' + (item.likes || 0) + ' fans love this\n\nGrab yours before it\'s gone!';
             window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
         };
 
-        function renderHorizontalItems(items, mealType, containerId) {
+        function renderHorizontalItems(items, mealType, containerId, highlightFilter = currentFilter) {
             const container = document.getElementById(containerId);
             const status = getCurrentMealStatus();
             const isCurrentlyServing = status.currentMeal === mealType;
@@ -1094,52 +992,52 @@
                 const itemKey = item.id;
                 const likes = item.likes || item.Like || 0;
                 const isSpecial = item.isSpecial || false;
-                // Treat items with > 0 likes as Bestsellers automatically
                 const isBestSeller = (item.isBestseller || false) || (likes > 0);
                 const isNewToday = item.isNewToday || false;
                 const hasImage = item.image && item.image.trim() !== "" && !item.image.includes('placeholder') && !item.image.includes('placehold.co');
-                const safeName = (item.name || 'Dish').replace(/'/g, "\'");
+                const safeName = (item.name || 'Yummy Dish').replace(/'/g, "\'");
                 const category = item.category || 'veg';
                 const isLiked = state.userLiked[itemKey] || false;
-                const heartEmoji = isLiked ? '❤️' : '🤍';
+                const heartEmoji = isLiked ? '💖' : '🤍';
 
-                // Determine card border class
                 let cardBorderClass = '';
-                if (isNewToday) cardBorderClass = 'new-today-card';
-                else if (isSpecial) cardBorderClass = 'special-card';
-                else if (isBestSeller) cardBorderClass = 'special-card';
+                if (highlightFilter === 'new' && isNewToday) cardBorderClass = 'new-today-card';
+                else if (highlightFilter === 'special' && isSpecial) cardBorderClass = 'special-card';
+                else if (highlightFilter === 'bestseller' && isBestSeller) cardBorderClass = 'special-card';
+                else if (highlightFilter === 'all') {
+                    if (isNewToday) cardBorderClass = 'new-today-card';
+                    else if (isSpecial) cardBorderClass = 'special-card';
+                    else if (isBestSeller) cardBorderClass = 'special-card';
+                }
 
-                // Determine top-left badge
                 let topBadge = '';
-                if (isNewToday) {
-                    topBadge = '<span class="new-today-badge">✨ New</span>';
-                } else if (isBestSeller) {
-                    topBadge = '<span class="special-badge">🏆 Best Seller</span>';
-                } else if (isSpecial) {
-                    topBadge = '<span class="special-badge">🔥 Special</span>';
+                // Show badge based on what the user is currently filtering by
+                if (highlightFilter === 'new' && isNewToday) {
+                    topBadge = '<span class="new-today-badge">✨ New!</span>';
+                } else if (highlightFilter === 'special' && isSpecial) {
+                    topBadge = '<span class="special-badge">⭐ Special</span>';
+                } else if (highlightFilter === 'bestseller' && isBestSeller) {
+                    topBadge = '<span class="special-badge">🏆 Best Seller!</span>';
+                } else if (highlightFilter === 'all') {
+                    // In "All" view, show the most relevant badge
+                    if (isNewToday) {
+                        topBadge = '<span class="new-today-badge">✨ New!</span>';
+                    } else if (isSpecial) {
+                        topBadge = '<span class="special-badge">⭐ Special</span>';
+                    } else if (isBestSeller) {
+                        topBadge = '<span class="special-badge">🏆 Best Seller!</span>';
+                    }
                 }
 
-                const imageSection = hasImage ? '<img src="' + item.image + '" alt="' + item.name.replace(/"/g, "&quot;") + '" class="w-full h-full object-cover menu-img" data-fallback="' + safeName.replace(/'/g, "\'") + '">' : getCardPlaceholderHTML(item.name || 'Dish');
+                const imageSection = hasImage ? '<img src="' + item.image + '" alt="' + item.name.replace(/"/g, "&quot;") + '" class="w-full h-full object-cover menu-img" data-fallback="' + safeName.replace(/'/g, "\'") + '">' : getCardPlaceholderHTML(item.name || 'Yummy Dish');
 
-                // Bottom badge
-                let bottomBadge = '';
-                if (isNewToday) {
-                    bottomBadge = '<span class="inline-block mt-1 text-[8px] bg-rose-50 text-rose-700 px-1.5 py-0.5 rounded font-extrabold uppercase border border-rose-100">🆕 New Today</span>';
-                } else if (isBestSeller) {
-                    bottomBadge = '<span class="inline-block mt-1 text-[8px] bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded font-extrabold uppercase border border-purple-100">🏆 Best Seller</span>';
-                } else if (isSpecial) {
-                    bottomBadge = '<span class="inline-block mt-1 text-[8px] bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded font-extrabold uppercase border border-amber-100">🔥 Special</span>';
-                }
-
-                return '<div class="food-card press-effect w-36 flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-sm border border-[#e5dcc3] cursor-pointer relative ' + cardBorderClass + '" data-diet="' + category + '" data-special="' + isSpecial + '" data-bestseller="' + isBestSeller + '" data-newtoday="' + isNewToday + '" data-name="' + item.name.toLowerCase() + '" onclick="openSpotlight(\'' + itemKey + '\')">' +
-                    '<div class="h-28 relative bg-[#e5dcc3] overflow-hidden">' + topBadge + imageSection +
-                    '<button onclick="toggleLike(\'' + itemKey + '\')" data-card-like="' + itemKey + '" class="card-like-btn ' + (isLiked ? 'liked' : '') + '" title="Like this dish">' + heartEmoji + '</button>' +
+                return '<div class="food-card press-effect w-40 flex-shrink-0 snap-start bg-white overflow-hidden cursor-pointer relative ' + cardBorderClass + '" data-diet="' + category + '" data-special="' + isSpecial + '" data-bestseller="' + isBestSeller + '" data-newtoday="' + isNewToday + '" data-name="' + item.name.toLowerCase() + '" onclick="openSpotlight(\'' + itemKey + '\')">' +
+                    '<div class="h-32 relative bg-primary-50 overflow-hidden">' + topBadge + imageSection +
+                    '<button onclick="toggleLike(\'' + itemKey + '\')" data-card-like="' + itemKey + '" class="card-like-btn touch-btn ' + (isLiked ? 'liked' : '') + '">' + heartEmoji + '</button>' +
                     '<span data-card-count="' + itemKey + '" class="card-like-count">' + likes + '</span>' +
-                    '<span class="absolute top-2 left-2 bg-white/90 text-[10px] px-2 py-0.5 rounded-full font-bold">' + getMealIcon(mealType) + '</span>' +
-                    '<span class="absolute bottom-2 left-2 price-tag text-white text-[10px] px-2 py-0.5 rounded font-bold z-10">₹' + item.price.toString() + '</span>' +
-                    '</div><div class="p-2.5"><p class="text-[11px] font-bold text-neutral-800 truncate">' + item.name + '</p>' +
-                    '<p class="text-[9px] text-neutral-500 truncate">' + (item.description || getMealFallbackText(mealType)) + '</p>' +
-                    bottomBadge +
+                    '<span class="absolute bottom-2 left-2 price-tag text-white text-[11px] px-3 py-1 rounded-full font-black z-10 shadow-sm">₹' + item.price.toString() + '</span>' +
+                    '</div><div class="p-4"><p class="text-sm font-black text-slate-800 truncate leading-tight mb-1">' + item.name + '</p>' +
+                    '<p class="text-[10px] font-bold text-slate-400 truncate">' + (item.description || getMealFallbackText(mealType)) + '</p>' +
                     getCategoryBadge(category) + '</div></div>';
             }).join('');
         }
@@ -1150,25 +1048,25 @@
             const badgeEl = document.getElementById('smartBadge');
 
             if (status.isOpen) {
-                msgEl.innerText = `Now serving ${status.mealLabel}`;
-                badgeEl.innerText = "Fresh";
-                badgeEl.className = "font-extrabold uppercase px-2.5 py-1 rounded-full text-[10px] bg-emerald-200 text-emerald-800 soft-pulse";
+                msgEl.innerText = `Serving ${status.mealLabel} Now!`;
+                badgeEl.innerText = "Hot";
+                badgeEl.className = "font-black uppercase px-4 py-2 rounded-full text-[11px] bg-emerald-100 text-emerald-600 soft-pulse";
             } else if (status.nextMeal) {
                 const next = MEAL_TIMES[status.nextMeal];
-                msgEl.innerText = `${next.label} starts soon`;
+                msgEl.innerText = `${next.label} Up Next`;
                 badgeEl.innerText = "Prep";
-                badgeEl.className = "font-extrabold uppercase px-2.5 py-1 rounded-full text-[10px] bg-amber-200 text-amber-800 soft-pulse";
+                badgeEl.className = "font-black uppercase px-4 py-2 rounded-full text-[11px] bg-amber-100 text-amber-600 soft-pulse";
             } else {
-                msgEl.innerText = `Kitchen closed`;
-                badgeEl.innerText = "Closed";
-                badgeEl.className = "font-extrabold uppercase px-2.5 py-1 rounded-full text-[10px] bg-neutral-200 text-neutral-800";
+                msgEl.innerText = `All done for today!`;
+                badgeEl.innerText = "Zzz";
+                badgeEl.className = "font-black uppercase px-4 py-2 rounded-full text-[11px] bg-slate-100 text-slate-500";
             }
         }
 
         function updateFavoritesBoard(items) {
             const board = document.getElementById('poll-board');
             if (!items || items.length === 0) {
-                board.innerHTML = '<p class="col-span-2 text-center text-xs text-neutral-500 py-4">No favorites yet.</p>';
+                board.innerHTML = '<p class="text-center text-sm font-bold text-slate-400 py-6">Be the first to like something! ✨</p>';
                 return;
             }
 
@@ -1177,14 +1075,16 @@
             board.innerHTML = sorted.map(item => {
                 const likes = item.likes || item.Like || 0;
                 const isLiked = state.userLiked[item.id] || false;
-                const heartIcon = isLiked ? '❤️' : '🤍';
-                const btnClass = isLiked ? 'touch-btn p-3 rounded-xl border text-left transition-all bg-rose-50 border-rose-200' : 'touch-btn p-3 rounded-xl border text-left transition-all bg-neutral-50 border-neutral-200';
+                const heartIcon = isLiked ? '💖' : '🤍';
+                const btnClass = isLiked ? 'touch-btn p-4 rounded-[24px] text-left transition-all bg-primary-50 border-2 border-primary-200 press-effect min-touch' : 'touch-btn p-4 rounded-[24px] text-left transition-all bg-white border-2 border-slate-100 press-effect min-touch shadow-sm';
 
                 return `<button id="poll-btn-${item.id}" onclick="toggleLike('${item.id}')" class="${btnClass}">
-                    <p class="text-[11px] font-bold text-neutral-800 truncate mb-1">${item.name}</p>
-                    <div class="flex items-center justify-between">
-                        <span id="poll_${item.id}" class="text-[10px] font-bold ${isLiked ? 'text-rose-600' : 'text-neutral-500'}"><span>${heartIcon} ${likes}</span></span>
-                        <span class="text-[10px] bg-white px-1.5 py-0.5 rounded border border-neutral-200">₹${item.price}</span>
+                    <div class="w-full flex items-center justify-between gap-3">
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-black text-slate-800 truncate mb-1">${item.name}</p>
+                            <span id="poll_${item.id}" class="text-[11px] font-bold ${isLiked ? 'text-primary-500' : 'text-slate-400'}"><span>${heartIcon} ${likes} fans</span></span>
+                        </div>
+                        <span class="text-xs bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full font-black">₹${item.price}</span>
                     </div>
                 </button>`;
             }).join('');
@@ -1197,11 +1097,11 @@
             function showLoadError(containerId, mealType) {
                 const container = document.getElementById(containerId);
                 container.innerHTML =
-                    '<div class="empty-state bg-red-50 border-2 border-red-200 rounded-2xl p-5 text-center w-full flex-shrink-0 snap-start">' +
-                    '<div class="text-3xl mb-2">⚠️</div>' +
-                    '<p class="text-sm font-bold text-red-700 mb-1">Failed to load ' + mealType + '</p>' +
-                    '<p class="text-[11px] text-neutral-500 leading-relaxed mb-3">Network issue or server unavailable.</p>' +
-                    '<button onclick="window.fetchTodaysMenu()" class="touch-btn bg-[#1e4620] text-white text-xs font-bold py-2 px-4 rounded-xl mx-auto">🔄 Retry</button>' +
+                    '<div class="empty-state bg-rose-50 border-2 border-rose-200 rounded-[24px] p-6 text-center w-full flex-shrink-0 snap-start">' +
+                    '<div class="text-4xl mb-3">🥺</div>' +
+                    '<p class="text-base font-black text-rose-600 mb-2">Oops, couldn\'t load ' + mealType + '</p>' +
+                    '<p class="text-sm font-bold text-rose-400 leading-relaxed mb-4">Connection hiccup.</p>' +
+                    '<button onclick="window.fetchTodaysMenu()" class="touch-btn bg-rose-500 text-white text-sm font-black py-3 px-8 rounded-full mx-auto min-touch press-effect">Retry</button>' +
                     '</div>';
             }
 
@@ -1210,7 +1110,7 @@
                     const mealTypes = ['Breakfast', 'Lunch', 'Dinner'];
                     showLoadError(id, mealTypes[idx]);
                 });
-                showToast("Connection timed out. Tap Retry.", "⏱️");
+                showToast("Taking too long! Tap Retry.", "⏳");
             }
 
             try {
@@ -1234,7 +1134,7 @@
                 if (state.todaySettings.isHoliday === true) {
                     document.getElementById('menuContainer').classList.add('hidden');
                     document.getElementById('holidayBanner').classList.remove('hidden');
-                    document.getElementById('holidayTimeText').innerText = state.todaySettings.holidayMessage || "Today";
+                    document.getElementById('holidayTimeText').innerText = state.todaySettings.holidayMessage || "See you soon!";
                     return;
                 }
 
@@ -1250,9 +1150,9 @@
                 state.masterMenuData.lunch = enabledItems.filter(i => i.mealType === 'lunch');
                 state.masterMenuData.dinner = enabledItems.filter(i => i.mealType === 'dinner');
 
-                renderHorizontalItems(state.masterMenuData.breakfast, 'breakfast', 'breakfast-gallery-scroll');
-                renderHorizontalItems(state.masterMenuData.lunch, 'lunch', 'lunch-gallery-scroll');
-                renderHorizontalItems(state.masterMenuData.dinner, 'dinner', 'dinner-gallery-scroll');
+                renderHorizontalItems(state.masterMenuData.breakfast, 'breakfast', 'breakfast-gallery-scroll', currentFilter);
+                renderHorizontalItems(state.masterMenuData.lunch, 'lunch', 'lunch-gallery-scroll', currentFilter);
+                renderHorizontalItems(state.masterMenuData.dinner, 'dinner', 'dinner-gallery-scroll', currentFilter);
 
                 if (state.todaySettings.delivery_charge) {
                     document.getElementById('dynamic-delivery-charge').innerText = state.todaySettings.delivery_charge;
@@ -1262,26 +1162,28 @@
                 updateFavoritesBoard(enabledItems);
                 updateSmartTimeBanner();
 
-                // Image fallback handler
                 setTimeout(() => {
                     document.querySelectorAll('.menu-img').forEach(img => {
                         img.onerror = function () {
-                            const fallbackName = this.getAttribute('data-fallback') || 'Dish';
+                            const fallbackName = this.getAttribute('data-fallback') || 'Yummy Dish';
                             this.outerHTML = getCardPlaceholderHTML(fallbackName);
                         };
                     });
                 }, 100);
 
                 if (retryCount > 0) {
-                    showToast("Menu loaded successfully!", "✅");
+                    showToast("Yay, we got it! ✨", "🎉");
                 }
+
+                // Apply default "New" filter after cards are rendered
+                setDietFilter('new');
 
             } catch (error) {
                 console.error("Firestore error:", error);
 
                 if (error.message === 'TIMEOUT' || error.code === 'unavailable' || error.code === 'deadline-exceeded') {
                     if (retryCount < MAX_RETRIES) {
-                        showToast("Retrying connection... (" + (retryCount + 1) + "/" + MAX_RETRIES + ")", "🔄");
+                        showToast("Trying again... (" + (retryCount + 1) + "/" + MAX_RETRIES + ")", "🔄");
                         setTimeout(() => fetchTodaysMenu(retryCount + 1), 2000);
                         return;
                     }
@@ -1299,19 +1201,12 @@
             }
         };
 
-        // Initialize on load
         window.addEventListener('DOMContentLoaded', () => {
             initializeDates();
             updateDeadlines();
-
-            // Refresh deadlines every minute
             setInterval(updateDeadlines, 60000);
-
-            // Fetch Menu Data
             window.fetchTodaysMenu();
         });
 
     </script>
-</body>
-
-</html>
+</body></html>
